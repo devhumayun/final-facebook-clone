@@ -1,0 +1,181 @@
+.account-header {
+    background-color: #fff;
+    height: 50px;
+    box-shadow: 0px 3px 5px rgba(52, 72, 84, 0.2);
+}
+
+.account-header-wraper {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+}
+
+.account-logo  span {
+    display: inline-block;
+    font-size: 32px;
+    padding: 4px 20px;
+    color: #113fa3;
+    margin-top: -6px;
+    position: fixed;
+}
+
+.account-area {
+    height: 100%;
+	background-color: #F0F2F5 !important;
+	display: flex;
+	justify-content: center;
+    margin-top: 2px;
+}
+
+.account-area .account-wraper {
+}
+
+.account-area .account-wraper .account-box {
+    width: 550px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 3px 5px rgba(52, 72, 84, 0.2);
+}
+
+.account-area .account-wraper .account-box .account-box-header {    
+
+}
+
+.account-area .account-wraper .account-box .account-box-header h3 {
+    text-align: center;
+    padding: 15px 0px;
+    font-weight: 800;
+}
+
+.account-area .account-wraper .account-box img{
+    width: 100%;
+    height: 300px;
+}
+.account-area .account-wraper .account-box h3 {
+    font-size: 25px;
+    padding: 10px 15px;
+    font-weight: 800;
+}
+.account-area .account-wraper .account-box p {
+    margin-bottom: 7px;
+    padding: 0px 15px;
+    font-size: 21px;
+}
+.account-area .account-wraper .account-box h4 {
+    padding: 13px 15px;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 17px;
+}
+.account-area .account-wraper .account-box .icon-box {
+    display: flex;
+    background: #e8e8e89c;
+    width: 95%;
+    margin: auto;
+    padding: 10px;
+    border-radius: 5px;
+}
+.account-area .account-wraper .account-box .icon-box .icon{
+
+}
+.account-area .account-wraper .account-box .icon-box .icon span{
+    display: inline-block;
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+
+.account-area .account-wraper .account-box .icon-box .content{
+    font-size: 15px;
+    text-align: left;
+    font-weight: 400;
+}
+.account-area .account-wraper .account-box .icon-box .content span{
+
+}
+
+
+.account-area .account-wraper .account-box .button {
+    padding: 20px 0px;
+}
+.account-area .account-wraper .account-box .button button{
+    border-radius: 5px;
+    display: block;
+    text-align: center;
+    background: #b8b8b89c;
+    width: 95%;
+    font-size: 18px;
+    margin: auto;
+    font-weight: 600;
+    padding: 6px;
+    border: none;
+}
+
+
+/*  modal */
+.account-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, .5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.account-modal .modal-wraper{
+
+}
+.account-modal .modal-wraper .modal-body{
+    width: 570px;
+    background: #fff;
+    height: auto;
+    border-radius: 4px;
+    padding: 15px 0px;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+}
+.account-modal .modal-wraper .modal-body .modal-header{
+    margin-bottom: 10px;
+    padding : 0px 20px;
+    display: flex !important;
+    justify-content: space-between !important;
+}
+.account-modal .modal-wraper .modal-body .modal-header h4{
+    font-weight: 700;
+    font-size: 21px;
+}
+.account-modal .modal-wraper .modal-body .modal-header span{
+    display: inline-block;
+    width: 37px;
+    height: 35px;
+    line-height: 31px;
+    background: #ddd;
+    text-align: center;
+    border-radius: 50%;
+}
+
+.account-modal .modal-wraper .modal-body .content{
+    padding: 0px 20px;
+}
+.account-modal .modal-wraper .modal-body .content span{
+    font-size: 17px;
+    display: inline-block;
+    margin-bottom: 8px;
+}
+
+.account-modal .modal-wraper .modal-body .footer{
+    margin-top: 10px;
+    padding: 0px 20px;
+    text-align: right;
+}
+.account-modal .modal-wraper .modal-body .footer button{
+    border: none;
+    font-size: 16px;
+    background: #1A6ED8;
+    color: #fff;
+    font-weight: 500;
+    padding: 6px 33px;
+    border-radius: 5px;
+}

@@ -1,0 +1,31 @@
+
+.reset-activation {}
+.reset-activation .activation-error-box{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    border: 1px solid #f02020;
+    margin-bottom: 12px;
+}
+.reset-activation .activation-error-box .error-icon{
+    display: inline-block;
+    font-size: 23px;
+    background: #f02020;
+    color: #fff;
+    padding: 10px;
+}
+.reset-activation .activation-error-box .text{
+    padding: 8px;
+    font-size: 14px;
+}
+
+
+.reset-activation .activation-code{
+    margin-top: 24px !IMPORTANT;
+}
+
+.reset-activation .activation-code .activation-text span{
+    font-size: 16px !important;
+    background: #fff;
+    padding: 0 !important;
+}

@@ -1,0 +1,340 @@
+    /* my css  Register Modal   */
+
+	.error-border {
+		border: 1px solid #BE4B49 !important;
+	}
+	
+	body {
+		background: #F0F2F5 !important;
+	}
+	
+	.finput{
+		position: relative;
+	}
+	
+	.finput  .fname-validate {
+		position: absolute;
+		top: 1px;
+		left: -162px;
+		color: #fff;
+		background: #BE4B49;
+		margin: 0;
+		font-size: 14px;
+		box-shadow: 0 0 0 1px rgb(139 3 0 / 75%), 0 1px 10px rgb(0 0 0 / 35%);
+		font-weight: 500;
+		border-radius: 2px;
+		padding: 10px 8px;
+		width: 145px;
+	}
+	
+	.finput .fname-validate::after{
+		content: '';
+		position: absolute;
+		top: 7px;
+		right: -11px;
+		width: 0;
+		height: 0;
+		border-style: solid;
+		border-width: 12.5px 0 12.5px 10px;
+		border-color: transparent transparent transparent #BE4B49;
+	}
+	
+	.finput .input-worning {
+		position: absolute;
+		top: 11px;
+		right: 6px;
+		font-size: 18px;
+		color: #be4b49;
+	}
+	
+	.surname-worning{
+		position: absolute;
+		top: 11px;
+		right: 6px;
+		font-size: 18px;
+		color: #be4b49;
+	}
+	
+	.surname-validate {
+		position: absolute;
+		top: 58px;
+		color: #fff;
+		z-index: 99;
+		background: #BE4B49;
+		margin: 0;
+		font-size: 14px;
+		box-shadow: 0 0 0 1px rgb(139 3 0 / 75%), 0 1px 10px rgb(0 0 0 / 35%);
+		font-weight: 500;
+		border-radius: 2px;
+		padding: 10px 8px;
+		width: 145px;
+	}
+	
+	.surname-validate::after {
+		content: '';
+		left: 14px;
+		top: -13px;
+		position: absolute;
+		z-index: 99999;
+		width: 0;
+		height: 0;
+		border-style: solid;
+		border-width: 0 10.5px 13px 10.5px;
+		border-color: transparent transparent #BE4B49 transparent;
+	}
+	
+	.reg-form{
+		position: relative;
+	}
+	
+	.reg-form .mobileORemail-validate {
+		position: absolute;
+		top: -4px;
+		left: -383px;
+		line-height: 21px;
+		color: #fff;
+		background: #BE4B49;
+		margin: 0;
+		font-size: 14px;
+		box-shadow: 0 0 0 1px rgb(139 3 0 / 75%), 0 1px 10px rgb(0 0 0 / 35%);
+		font-weight: 500;
+		border-radius: 2px;
+		padding: 8px;
+		z-index: 99;
+		width: 366px;
+	}
+	
+	.reg-form .mobileORemail-validate::after{
+		content: '';
+		position: absolute;
+		top: 7px;
+		right: -11px;
+		width: 0;
+		height: 0;
+		border-style: solid;
+		border-width: 12.5px 0 12.5px 10px;
+		border-color: transparent transparent transparent #BE4B49;
+	}
+	
+	.pass-field{
+		position: relative;
+	}
+	
+	.pass-field .password-validate {
+		position: absolute;
+		top: -4px;
+		left: -383px;
+		line-height: 21px;
+		color: #fff;
+		background: #BE4B49;
+		margin: 0;
+		font-size: 14px;
+		box-shadow: 0 0 0 1px rgb(139 3 0 / 75%), 0 1px 10px rgb(0 0 0 / 35%);
+		font-weight: 500;
+		border-radius: 2px;
+		padding: 8px;
+		z-index: 99;
+		width: 366px;
+	}
+	
+	.pass-field .password-validate::after {
+		content: '';
+		position: absolute;
+		top: 7px;
+		right: -11px;
+		width: 0;
+		height: 0;
+		border-style: solid;
+		border-width: 12.5px 0 12.5px 10px;
+		border-color: transparent transparent transparent #BE4B49;
+	}
+
+      /* my css start */
+
+  .icon {
+	position: relative;
+  }
+  .showHidePass {
+    position: absolute;
+    right: 53px;
+    top: -49px;
+    font-size: 18px;
+    font-weight: 700;
+    display: inline-block;
+    height: auto;
+    color: #216FDB;
+    text-align: center;
+    padding: 12px;
+    border-radius: 0px 0px 5px 5px;
+	transition: .1s;
+}
+
+.showHidePass:hover {
+	background: #216fdb33;
+}
+
+.password-error-box {
+    margin-top: -8px;
+}
+
+.password-modal-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px !important;
+    border-bottom: 1px solid #ddd;
+}
+
+.password-modal-header h4 {
+    padding: 17px 20px;
+    margin-top: -15px;
+    font-weight: 500 !important;
+}
+
+.password-modal-header span {
+    line-height: 38px !important;
+    display: inline-block !important;
+    margin-right: 20px !important;
+}
+
+.password-content {
+
+}
+
+.password-content span {
+    margin-bottom: 2px !important;
+    color: #000;
+}
+.password-content span strong{
+	font-weight: 700 !important;
+}
+
+	/* radio custom option */
+	.custom-box {
+		margin-top: 10px;
+	}
+	.custom-box .custon-select-option {
+		width: 100%;
+		padding: 11px 9px;
+		border: 1px solid #ddd;
+		border-radius: 5px;
+		margin-bottom: 6px;
+	}
+	
+	.custom-box  label {
+		color: #777;
+		font-size: 12px;
+		font-weight: 500;
+	}
+	
+	.custom-box input {
+		width: 100%;
+		margin-top: 5px;
+	}
+	
+	/* activation page  */
+	.login-part {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+	}
+
+/*
+* Login page css
+*/
+
+.hideShowParent{
+	position: relative;
+}
+
+.hideshow span{
+	display: inline-block;
+    position: absolute;
+    top: 29%;
+    right: 36px;
+}
+
+/* 
+* Register Page css
+*/
+
+.register-page .logo {
+	text-align: center;
+	margin-top: 20px;
+}
+.register-page .logo img{
+	width: 250px;
+	object-fit: contain;
+	height: auto;
+}
+.register-page .register-wrapper {
+    width: 440px;
+    margin: auto;
+    height: auto;
+    background: #fff;
+    box-shadow: 0 0 0 1px rgb(244 244 244 / 75%), 0 1px 10px rgb(0 0 0 / 35%);
+    margin-bottom: 40px;
+	border-radius: 4px;
+}
+
+.register-page .register-wrapper .register-header .sign-up-content{
+	text-align: center;
+	border-bottom: 1px solid #ddd;
+}
+.register-page .register-wrapper .register-header .sign-up-content h3{
+	font-size: 25px;
+    padding-top: 11px;
+}
+.register-page .register-wrapper .register-header .sign-up-content span {
+	margin-bottom: 20px;
+}
+.register-login-connection {
+	text-align: center;
+	padding: 10px 0px;
+}
+.register-login-connection a{
+	color: #216FDB;
+	font-weight: 500;
+}
+
+/* 
+* Auth page css
+*/
+.auth-form {
+	position: relative;
+}
+.showHide {
+    position: absolute;
+    top: 14px;
+    right: 13px;
+}
+.login-warning {
+    position: absolute;
+    top: 9px;
+    right: 15px;
+    display: inline-block;
+    font-size: 25px;
+    color: #FA3C3C;
+}
+.err-border{
+	border: 1px solid #FA3C3C !important;
+	border-radius: 5px;
+	outline: none;
+}
+.err-border:focus{
+	border: none;
+}
+
+
+.auth-user-story {
+	background-image: url('../images//user.jpg');
+	width: 19%;
+    height: 200px;
+    background-position: center center;
+    background-size: auto 100%;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all ease-in-out 0.4s;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 2px 3px rgb(0 0 0 / 10%), 0 0px 0px rgb(0 0 0 / 10%);
+}
