@@ -25,7 +25,6 @@ const PORT = process.env.SERVER_PORT;
 // users server
 app.use('/api/v1/user', userRoute );
 
-
 // custom error
 app.use(errorHandler)
 
@@ -34,4 +33,3 @@ app.listen( PORT, () =>  {
     connectMongoDB();
     console.log(`SERVER is runing on PORT : ${ PORT }`.bgGreen.black);
 })
-
