@@ -180,7 +180,7 @@ const RegisterModal = ({ setRegister }) => {
 
                     </div>
                      <div className="reg-form pass-field">
-                        <input name='password'  className={errBor.password ? 'error-border' : ""} onBlur={ handleBlurValidation } onFocus={ handleFocusValidation } value={ input.password } onChange={ handleInputValue } type="text" placeholder="New password" />
+                        <input name='password'  className={errBor.password ? 'error-border' : ""} onBlur={ handleBlurValidation } onFocus={ handleFocusValidation } value={ input.password } onChange={ handleInputValue } type="password" placeholder="New password" />
                         {
                             errBor.password && <span className='surname-worning'> <MdError/> </span> 
                         }
