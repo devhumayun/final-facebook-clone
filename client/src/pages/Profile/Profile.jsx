@@ -14,7 +14,7 @@ const Profile = () => {
          <div className="fb-profile-wrapper">
           <div className="fb-profile-left">
             <FBcard>
-               <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis nihil consectetur eos, illo maxime sapiente? Dolore, ipsam explicabo temporibus mollitia beatae iusto, delectus nam consequatur aperiam totam ad quod soluta.</p>
+               
             </FBcard>
           </div>
           <div className="fb-profile-right">
