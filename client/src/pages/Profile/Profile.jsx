@@ -14,7 +14,11 @@ const Profile = () => {
          <div className="fb-profile-wrapper">
           <div className="fb-profile-left">
             <FBcard>
-               
+               <h3> Intro </h3>
+               <div className="bio-box"> 
+                  <p> Don't Judge a Person By His Dress. Eat↔Sleep↔ Namaz↔Teaching↔Coding </p>
+                  <button> Edit Bio </button>
+               </div>
             </FBcard>
           </div>
           <div className="fb-profile-right">

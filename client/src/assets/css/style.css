@@ -1506,7 +1506,7 @@ span.camera-icon {
 }
 
 .fb-profile-details {
-  width: 980px;
+  width: 880px;
   margin: auto;
   display: flex;
   justify-content: space-between;
@@ -1515,18 +1515,21 @@ span.camera-icon {
 }
 
 .fb-profile-details .profile-info {
-  width: 980px;
+  width: 60%;
   display: flex;
   justify-content: flex-start;
   align-items: flex-end;
   gap: 10px;
 }
 .fb-profile-details .profile-info .profile-desc {
-  margin-bottom: 20px;
+	display: flex;
+    flex-direction: column;
+    gap: 7px;
+	margin-bottom: 4px;
 }
 
 .fb-profile-details .profile-info .profile-desc h1 {
-  font-size: 36px;
+  font-size: 28px;
   font-family: inherit;
 }
 
@@ -1563,11 +1566,11 @@ span.camera-icon {
 }
 
 .profile-action {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 10px;
-  width: 500px;
+	display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    width: 40%;
 }
 
 .profile-action button {
@@ -1611,7 +1614,7 @@ span.camera-icon {
 }
 
 .fb-profile-menu {
-  width: 980px;
+  width: 880px;
   margin: auto;
   border-top: 1px solid #ccced2;
 }

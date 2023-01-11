@@ -343,15 +343,33 @@
 * User Profile css
 */
 .fb-profile-wrapper {
-    width: 980px;
+    width: 880px;
     display: flex;
     justify-content: space-between;
     gap: 10px;
     margin: auto;
 }
 .fb-profile-left {
-    width: 432px;
+    width: 360px;
 }
+.fb-profile-left h3 {
+
+}
+.fb-profile-left .bio-box{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.fb-profile-left .bio-box p{
+	display: block;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 11px;
+    line-height: 25px;
+}
+.fb-profile-left .bio-box button{}
 .fb-profile-right {
-    width: 530px;
+    width: 500px;
 }
