@@ -22,7 +22,7 @@ const ProfileHeader = () => {
                 <div class="profile-desc">
                     <h1>Asraful Haque<span>(neooo inc)</span></h1>
                     <div class="profile-follow-details">
-                    <span class="profile-followers">15k follower</span>
+                    <span class="profile-followers">15k follower.</span>
                     <span class="profile-following">1k following</span>
                     </div>
                     <div class="profile-friends-list">
