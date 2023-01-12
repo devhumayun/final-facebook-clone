@@ -370,8 +370,9 @@
     margin-bottom: 11px;
     line-height: 25px;
 }
-.fb-profile-left .bio-box button {
+.edit-button{
     display: block;
+    margin: auto;
     width: 95%;
     padding: 7px;
     font-size: 16px;
@@ -379,8 +380,59 @@
     border: none;
     color: #5E5F61;
     border-radius: 6px;
-	background-color: #D8DADF;
+    background-color: #D8DADF;
+    cursor: pointer;
 }
 .fb-profile-right {
     width: 500px;
+}
+
+.info-details-box {
+	padding: 20px 0px;
+}
+.info-details-box ul{
+	display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.info-details-box ul li{
+	display: flex;
+	flex-direction: flex-start;
+	gap: 10px;
+}
+.info-details-box ul li img{
+	height: 20px;
+    aspect-ratio: auto 20 / 20;
+    width: 20px;
+    object-fit: cover;
+    filter: contrast(0.1);
+}
+.info-details-box ul li span{
+	color: #606770;
+    font-size: 17px;
+}
+.info-details-box ul li:last-child{
+	margin-bottom: 10px;
+}
+.info-details-box ul li span .bold-text {
+    display: inline-block;
+    font-weight: 600;
+	color: #000 !important;
+}
+.info-details-box ul li span .bold-text:hover{
+	text-decoration: underline;
+}
+
+.hobbies-box {}
+.hobbies-box ul {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+}
+.hobbies-box ul li{}
+.hobbies-box ul li:last-child{
+	margin-bottom: 20px;
+}
+.hobbies-box ul li .hobbies-item{
+	
 }

@@ -4,6 +4,8 @@ import FBcard from '../../components/FBcard/FBcard';
 import HomeHeader from '../../components/HomeHeader/HomeHeader';
 import ProfileHeader from '../../components/Profile/ProfileHeader/ProfileHeader';
 import UserPost from '../../components/UserPost/UserPost';
+import { GiBasketballBall } from 'react-icons/gi';
+import { IoIosFootball } from 'react-icons/io';
 
 const Profile = () => {
   return (
@@ -17,9 +19,9 @@ const Profile = () => {
                <h3> Intro </h3>
                <div className="bio-box"> 
                   <p> Don't Judge a Person By His Dress. Eat↔Sleep↔ Namaz↔Teaching↔Coding </p>
-                  <button> Edit Bio </button>
+                  <button className='edit-button'> Edit Bio </button>
                </div>
-               <div className="info-details-b">
+               <div className="info-details-box">
                  <ul>
                    <li>
                       <img src="https://static.xx.fbcdn.net/rsrc.php/v3/yp/r/Q9Qu4uLgzdm.png?_nc_eui2=AeEjnKVx7JEML4acw-YtOzo4QE0O-ZdJm-NATQ75l0mb4873d4pSYZV4yvmB8FoKDxLwCUBqTjyOrajqwOC9liP2" alt="" />
@@ -46,7 +48,22 @@ const Profile = () => {
                       <span> Joined on June 2017 </span>
                    </li>
                  </ul>
-                 <button> Edit details </button>
+                 <button className='edit-button'> Edit details </button>
+               </div>
+               <div className="hobbies-box">
+                  <ul>
+                     <li>
+                        <div className="hobbies-item">
+                           <GiBasketballBall />
+                           <span> Whellchair Basketball </span>
+                        </div>
+                     </li>
+                     <li>
+                        <IoIosFootball />
+                        <span> Blind Football </span>
+                     </li>
+                  </ul>
+                  <button className='edit-button'> Edit hobbies </button>
                </div>
             </FBcard>
           </div>
