@@ -353,8 +353,7 @@
     width: 360px;
 }
 .fb-profile-left h3 {
-    font-size: 25px;
-    margin-bottom: 10px;
+    font-size: 24px;
 }
 .fb-profile-left .bio-box{
 	display: flex;
@@ -370,6 +369,44 @@
     margin-bottom: 11px;
     line-height: 25px;
 }
+.add-or-edit-bio-box{
+	display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.add-or-edit-bio-box textarea{}
+.add-or-edit-bio-box span{
+	text-align: right;
+    color: #65676B;
+    font-size: 16px;
+}
+.add-or-edit-bio-box .boi-status{
+	display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.add-or-edit-bio-box .boi-status .status{
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+.add-or-edit-bio-box .boi-status .status .earth-icon{
+	height: 21px;
+	width: 21px;
+}
+.add-or-edit-bio-box .boi-status .status span{
+	color: #050505;
+    font-family: inherit;
+    font-size: 17px;
+}
+
+.add-or-edit-bio-box .boi-status .boi-btn{
+	display: flex;
+    gap: 7px;
+}
+.add-or-edit-bio-box .boi-status .boi-btn button{}
+
+
 .edit-button{
     display: block;
     margin: auto;
@@ -477,9 +514,19 @@
 	display: flex;
     justify-content: space-between;
     align-items: center;
+	margin-bottom: 10px;
 }
 .gallery-img-box .gallery-header h3{}
-.gallery-img-box  .gallery-header a{}
+.gallery-img-box  .gallery-header a:hover{
+	display: block;
+    font-size: 19px;
+    background: #e4e4e6;
+    color: #6798DB;
+    padding: 7px 10px;
+    border-radius: 5px;
+    font-weight: 500;
+    font-family: inherit;
+}
 .gallery-img-box .gallery-img{
 	display: flex;
     flex-wrap: wrap;
