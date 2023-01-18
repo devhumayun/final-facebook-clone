@@ -1,32 +1,57 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { GiBasketballBall } from 'react-icons/gi';
 import { IoIosFootball } from 'react-icons/io';
 import FBcard from '../../FBcard/FBcard';
+import {useSelector} from 'react-redux'
 
 const ProfileInfo = () => {
+    const { user } = useSelector(state => state.auth)
+    // boi box show status
+    const [bioShow, setBioShow] = useState(false)
+    const [bio, setBio] = useState(user.bio)
+    const [remain, setRemain] = useState( 101 - bio.length )
+
+    // handle bioBoxShow
+    const handleBioShow = () => {
+        setBioShow(!bioShow)
+    }
+    const handleCharacterChange = (e) => {
+        setBio(e.target.value)
+        setRemain(101 - e.target.value.length)
+    }
   return (
     <>
         <FBcard>
             <h3> Intro </h3>
             <div className="bio-box"> 
-                <p> Don't Judge a Person By His Dress. Eat↔Sleep↔ Namaz↔Teaching↔Coding </p>
-                <button className='edit-button'> Add Bio </button>
+                <p> {user.bio} </p>
+                {
+                    user.bio && !bioShow && 
+                    <>
+                      <button className='edit-button' onClick={handleBioShow}> Edit Bio </button>
+                    </>
+                }
+                {
+                    !user.bio && !bioShow && <button className='edit-button' onClick={handleBioShow}> Add Bio </button>
+                }   
             </div>
-
-            <div className="add-or-edit-bio-box">
-                <textarea placeholder='Discribe who you are '></textarea>
-                <span> 101 characters remaining </span>
-                <div className="boi-status">
-                    <div className="status">
-                        <div style={{backgroundImage: 'url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/HgfBXTEArfp.png?_nc_eui2=AeHiL_qbYn2BkAdVc96qMtPWc6lHD9kG4H5zqUcP2QbgfmyQS770hxOzgJjTYi4RhRWWM8OxeAnN_32UrgBL4W3c)'}} className="earth-icon"></div>
-                        <span> Public </span>
-                    </div>
-                    <div className="boi-btn">
-                        <button> Cancel </button>
-                        <button disabled={true}> Save </button>
+            {
+                bioShow && 
+                <div className="add-or-edit-bio-box">
+                    <textarea value={user.bio} onChange={handleCharacterChange} placeholder='Discribe who you are '></textarea>
+                    <span> {remain} characters remaining </span>
+                    <div className="boi-status">
+                        <div className="status">
+                            <div style={{backgroundImage: 'url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/HgfBXTEArfp.png?_nc_eui2=AeHiL_qbYn2BkAdVc96qMtPWc6lHD9kG4H5zqUcP2QbgfmyQS770hxOzgJjTYi4RhRWWM8OxeAnN_32UrgBL4W3c)'}} className="earth-icon"></div>
+                            <span> Public </span>
+                        </div>
+                        <div className="boi-btn">
+                            <button onClick={handleBioShow}> Cancel </button>
+                            <button disabled={true}> Save </button>
+                        </div>
                     </div>
                 </div>
-            </div>
+            }
 
 
             <div className="info-details-box">
