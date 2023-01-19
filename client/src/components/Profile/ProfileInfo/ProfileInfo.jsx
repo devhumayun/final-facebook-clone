@@ -10,24 +10,29 @@ const ProfileInfo = () => {
     const [bioShow, setBioShow] = useState(false)
     const [bio, setBio] = useState(user.bio)
     const [remain, setRemain] = useState( 101 - bio.length )
+    const [saveBtn, setSaveBtn] = useState(true)
 
     // handle bioBoxShow
     const handleBioShow = () => {
         setBioShow(!bioShow)
+        setSaveBtn(true)
+        setBio('')
     }
     const handleCharacterChange = (e) => {
         setBio(e.target.value)
         setRemain(101 - e.target.value.length)
+        setSaveBtn(false)
     }
   return (
     <>
         <FBcard>
             <h3> Intro </h3>
             <div className="bio-box"> 
-                <p> {user.bio} </p>
+            
                 {
                     user.bio && !bioShow && 
                     <>
+                      <p> {user.bio} </p>
                       <button className='edit-button' onClick={handleBioShow}> Edit Bio </button>
                     </>
                 }
@@ -38,7 +43,7 @@ const ProfileInfo = () => {
             {
                 bioShow && 
                 <div className="add-or-edit-bio-box">
-                    <textarea value={user.bio} onChange={handleCharacterChange} placeholder='Discribe who you are '></textarea>
+                    <textarea value={bio} onChange={handleCharacterChange} placeholder='Discribe who you are ' name=''> {user.bio} </textarea>
                     <span> {remain} characters remaining </span>
                     <div className="boi-status">
                         <div className="status">
@@ -47,7 +52,7 @@ const ProfileInfo = () => {
                         </div>
                         <div className="boi-btn">
                             <button onClick={handleBioShow}> Cancel </button>
-                            <button disabled={true}> Save </button>
+                            <button className={`${!saveBtn ? 'active-save-btn' : ""}`} disabled={saveBtn}> Save </button>
                         </div>
                     </div>
                 </div>

@@ -432,6 +432,11 @@
     font-family: inherit;
 }
 
+.boi-btn .active-save-btn {
+	background: #1877F2 !important;
+	color: #fff !important;
+}
+
 
 .edit-button {
     display: block;
