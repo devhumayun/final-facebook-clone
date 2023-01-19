@@ -8,7 +8,7 @@ const ProfileInfo = () => {
     const { user } = useSelector(state => state.auth)
     // boi box show status
     const [bioShow, setBioShow] = useState(false)
-    const [bio, setBio] = useState(user.bio)
+    const [bio, setBio] = useState(user.bio ? user.bio : "")
     const [remain, setRemain] = useState( 101 - bio.length )
     const [saveBtn, setSaveBtn] = useState(true)
 
@@ -37,13 +37,16 @@ const ProfileInfo = () => {
                     </>
                 }
                 {
-                    !user.bio && !bioShow && <button className='edit-button' onClick={handleBioShow}> Add Bio </button>
+                    !user.bio && !bioShow && 
+                    <button className='edit-button' onClick={handleBioShow}> Add Bio </button>
                 }   
             </div>
             {
                 bioShow && 
                 <div className="add-or-edit-bio-box">
+
                     <textarea value={bio} onChange={handleCharacterChange} placeholder='Discribe who you are ' name=''> {user.bio} </textarea>
+
                     <span> {remain} characters remaining </span>
                     <div className="boi-status">
                         <div className="status">
