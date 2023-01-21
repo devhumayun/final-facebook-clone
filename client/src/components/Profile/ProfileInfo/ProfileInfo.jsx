@@ -3,15 +3,16 @@ import { GiBasketballBall } from 'react-icons/gi';
 import { IoIosFootball } from 'react-icons/io';
 import FBcard from '../../FBcard/FBcard';
 import {useSelector} from 'react-redux'
+import FBmodal from '../../FBmodal/FBmodal';
 
 const ProfileInfo = () => {
     const { user } = useSelector(state => state.auth)
     // boi box show status
     const [bioShow, setBioShow] = useState(false)
-    const [bio, setBio] = useState(user.bio ? user.bio : "")
+    const [bio, setBio] = useState(user.bio)
     const [remain, setRemain] = useState( 101 - bio.length )
     const [saveBtn, setSaveBtn] = useState(true)
-
+    //   console.log(bio)
     // handle bioBoxShow
     const handleBioShow = () => {
         setBioShow(!bioShow)
@@ -89,6 +90,9 @@ const ProfileInfo = () => {
                         <span> Joined on June 2017 </span>
                     </li>
                 </ul>
+                 <FBmodal>
+                    
+                 </FBmodal>
                 <button className='edit-button'> Edit details </button>
             </div>
             <div className="hobbies-box">
