@@ -1,0 +1,40 @@
+.fb-modal-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.fb-modal-wrapper .bf-modal-popup {
+    width: 700px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 3px rgb(0 0 0 / 10%), 0 0px 0px rgb(0 0 0 / 10%);;
+}
+.fb-modal-wrapper .bf-modal-popup .fb-modal-header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.fb-modal-wrapper .bf-modal-popup .fb-modal-header{
+    position: relative;
+    border-bottom: 1px solid #ddd;
+    padding: 20px 0px;
+}
+.fb-modal-wrapper .bf-modal-popup .fb-modal-header .title{
+    font-size: 20px;
+    font-family: inherit;
+    font-weight: 700;
+    color: #000;
+}
+
+.fb-modal-wrapper .bf-modal-popup .fb-modal-header  button{
+    position: absolute;
+    top: 17px;
+    right: 14px;
+    border: none;
+    background: #D8DADF;
+    border-radius: 50%;
+    height: 35px;
+    width: 35px;
+}
+.fb-modal-wrapper .bf-modal-popup .fb-modal-header button img{}
