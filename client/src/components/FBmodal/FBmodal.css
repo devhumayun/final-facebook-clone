@@ -21,7 +21,7 @@
     padding: 20px 0px;
 }
 .fb-modal-wrapper .bf-modal-popup .fb-modal-header .title{
-    font-size: 20px;
+    font-size: 23px;
     font-family: inherit;
     font-weight: 700;
     color: #000;
@@ -32,9 +32,13 @@
     top: 17px;
     right: 14px;
     border: none;
-    background: #D8DADF;
+    background: #eff1f5;
     border-radius: 50%;
-    height: 35px;
-    width: 35px;
+    height: 40px;
+    width: 40px;
+    transition: all ease-in-out .3s;
+}
+.fb-modal-wrapper .bf-modal-popup .fb-modal-header  button:hover{
+    background: #e3e4e4;
 }
 .fb-modal-wrapper .bf-modal-popup .fb-modal-header button img{}

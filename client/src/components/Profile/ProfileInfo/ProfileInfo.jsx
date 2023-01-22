@@ -90,8 +90,8 @@ const ProfileInfo = () => {
                         <span> Joined on June 2017 </span>
                     </li>
                 </ul>
-                 <FBmodal>
-                    
+                 <FBmodal title="Edit details" >
+                    <h1>hello</h1>
                  </FBmodal>
                 <button className='edit-button'> Edit details </button>
             </div>
