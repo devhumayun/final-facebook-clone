@@ -587,3 +587,30 @@
     object-fit: cover;
 	margin-bottom: -5px;
 }
+
+
+
+/*  Edit details css  */
+.edit-details-header{
+	display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+.edit-details-header .header-title{
+	font-size: 16px;
+    font-weight: 600;
+    font-family: inherit;
+    color: #050505;
+}
+.edit-details-header .header-subtitle{
+	font-size: 15px;
+    line-height: 27px;
+    color: #65676B;
+    font-weight: 400;
+}
+.edit-details-intro{}
+.edit-details-intro .details-intro-item{}
+.edit-details-intro .details-intro-item .intro-title{}
+.edit-details-intro .details-intro-item .intro-title a{}
+.edit-details-intro .details-intro-item .intro-title a img{}
+.edit-details-intro .details-intro-item .intro-title a sapn{}

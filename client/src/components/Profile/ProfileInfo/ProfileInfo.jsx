@@ -17,14 +17,14 @@ const ProfileInfo = () => {
     const handleBioShow = () => {
         setBioShow(!bioShow)
         setSaveBtn(true)
-        setBio('')
+        setBio('') 
     }
     const handleCharacterChange = (e) => {
         setBio(e.target.value)
         // setRemain(101 - e.target.value.length)
         setSaveBtn(false)
     }
-    
+
   return (
     <>
         <FBcard>
@@ -92,7 +92,20 @@ const ProfileInfo = () => {
                     </li>
                 </ul>
                  <FBmodal title="Edit details" >
-                    <h1>hello</h1>
+
+                    <div className="edit-details-header">
+                        <span className="header-title">Customise your Intro</span>
+                        <span className="header-subtitle"> Details you select will be public. </span>
+                    </div>
+                    <div className="edit-details-intro">
+                        <div className="details-intro-item">
+                            <span className="intro-title"> Work </span>
+                            <a href="/">
+                                <img src="https://static.xx.fbcdn.net/rsrc.php/v3/y8/r/qDSwY9tayvO.png" alt="" />
+                                <span> Add a workplace </span>
+                            </a>
+                        </div>
+                    </div>
                  </FBmodal>
                 <button className='edit-button'> Edit details </button>
             </div>
