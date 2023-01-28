@@ -101,7 +101,7 @@ const ProfileInfo = () => {
                         <div className="details-intro-item">
                             <span className="intro-title"> Work </span>
                             <a href="/">
-                                <img src="https://static.xx.fbcdn.net/rsrc.php/v3/y8/r/qDSwY9tayvO.png" alt="" />
+                                <div style={{backgroundImage: 'url(https://static.xx.fbcdn.net/rsrc.php/v3/y8/r/qDSwY9tayvO.png)'}} className="pluse-icon"></div>
                                 <span> Add a workplace </span>
                             </a>
                         </div>

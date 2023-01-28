@@ -608,9 +608,38 @@
     color: #65676B;
     font-weight: 400;
 }
+
 .edit-details-intro{}
-.edit-details-intro .details-intro-item{}
-.edit-details-intro .details-intro-item .intro-title{}
-.edit-details-intro .details-intro-item .intro-title a{}
-.edit-details-intro .details-intro-item .intro-title a img{}
+.edit-details-intro .details-intro-item{
+	display: flex;
+    flex-direction: column;
+    padding: 0px 20px;
+	margin-bottom: 20px;
+}
+.edit-details-intro .details-intro-item .intro-title{
+	font-size: 17px;
+    font-weight: 600;
+    color: #050505;
+    margin-bottom: 9px;
+}
+.edit-details-intro .details-intro-item a{
+	display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    transform: translate(5px, 0px);
+	color: hsl(214, 89%, 52%);
+}
+.edit-details-intro .details-intro-item a:hover{
+	text-decoration: underline;
+}
+.edit-details-intro .details-intro-item .pluse-icon {
+    background-position: 0px 0px;
+    background-size: auto;
+    width: 32px;
+    height: 32px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    filter: invert(39%) sepia(57%) saturate(200%) saturate(200%) saturate(200%) saturate(147.75%) hue-rotate(202deg) brightness(97%) contrast(96%);
+}
 .edit-details-intro .details-intro-item .intro-title a sapn{}
