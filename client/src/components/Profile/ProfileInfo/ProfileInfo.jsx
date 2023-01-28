@@ -10,7 +10,7 @@ const ProfileInfo = () => {
     // boi box show status
     const [bioShow, setBioShow] = useState(false)
     const [bio, setBio] = useState(user.bio)
-    const [remain, setRemain] = useState( 101 - bio.length )
+    // const [remain, setRemain] = useState( 101 - bio.length )
     const [saveBtn, setSaveBtn] = useState(true)
     //   console.log(bio)
     // handle bioBoxShow
@@ -21,9 +21,10 @@ const ProfileInfo = () => {
     }
     const handleCharacterChange = (e) => {
         setBio(e.target.value)
-        setRemain(101 - e.target.value.length)
+        // setRemain(101 - e.target.value.length)
         setSaveBtn(false)
     }
+    
   return (
     <>
         <FBcard>
@@ -48,7 +49,7 @@ const ProfileInfo = () => {
 
                     <textarea value={bio} onChange={handleCharacterChange} placeholder='Discribe who you are ' name=''> {user.bio} </textarea>
 
-                    <span> {remain} characters remaining </span>
+                    <span> 101 characters remaining </span>
                     <div className="boi-status">
                         <div className="status">
                             <div style={{backgroundImage: 'url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/HgfBXTEArfp.png?_nc_eui2=AeHiL_qbYn2BkAdVc96qMtPWc6lHD9kG4H5zqUcP2QbgfmyQS770hxOzgJjTYi4RhRWWM8OxeAnN_32UrgBL4W3c)'}} className="earth-icon"></div>
