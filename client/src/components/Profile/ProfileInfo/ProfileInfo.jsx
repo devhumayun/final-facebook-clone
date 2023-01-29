@@ -4,11 +4,13 @@ import { IoIosFootball } from 'react-icons/io';
 import FBcard from '../../FBcard/FBcard';
 import {useSelector} from 'react-redux'
 import FBmodal from '../../FBmodal/FBmodal';
+import QuickUpdate from '../../QuickUpdate/QuickUpdate';
 
 const ProfileInfo = () => {
     const { user } = useSelector(state => state.auth)
     // boi box show status
     const [bioShow, setBioShow] = useState(false)
+    const [editDetails, setEditDetails] = useState(false)
     const [bio, setBio] = useState(user.bio)
     // const [remain, setRemain] = useState( 101 - bio.length )
     const [saveBtn, setSaveBtn] = useState(true)
@@ -91,23 +93,81 @@ const ProfileInfo = () => {
                         <span> Joined on June 2017 </span>
                     </li>
                 </ul>
-                 <FBmodal title="Edit details" >
-
-                    <div className="edit-details-header">
-                        <span className="header-title">Customise your Intro</span>
-                        <span className="header-subtitle"> Details you select will be public. </span>
-                    </div>
+                {
+                    editDetails && 
+                    <FBmodal title="Edit details" closePopup={setEditDetails}>
                     <div className="edit-details-intro">
+                        <div className="edit-details-header">
+                            <span className="header-title">Customise your Intro</span>
+                            <span className="header-subtitle"> Details you select will be public. </span>
+                        </div>
                         <div className="details-intro-item">
                             <span className="intro-title"> Work </span>
                             <a href="/">
                                 <div style={{backgroundImage: 'url(https://static.xx.fbcdn.net/rsrc.php/v3/y8/r/qDSwY9tayvO.png)'}} className="pluse-icon"></div>
                                 <span> Add a workplace </span>
                             </a>
+                            <QuickUpdate placeholder="Descripation" />
+                        </div>
+                        <div className="details-intro-item">
+                            <span className="intro-title"> Education </span>
+                            <a href="/">
+                                <div style={{backgroundImage: 'url(https://static.xx.fbcdn.net/rsrc.php/v3/y8/r/qDSwY9tayvO.png)'}} className="pluse-icon"></div>
+                                <span> Add secondary school </span>
+                            </a>
+                            <a href="/">
+                                <div style={{backgroundImage: 'url(https://static.xx.fbcdn.net/rsrc.php/v3/y8/r/qDSwY9tayvO.png)'}} className="pluse-icon"></div>
+                                <span> Add university   </span>
+                            </a>
+                        </div>
+                        <div className="details-intro-item">
+                            <span className="intro-title"> Current town/city </span>
+                            <a href="/">
+                                <div style={{backgroundImage: 'url(https://static.xx.fbcdn.net/rsrc.php/v3/y8/r/qDSwY9tayvO.png)'}} className="pluse-icon"></div>
+                                <span> Add city </span>
+                            </a>
+                        </div>
+                        <div className="details-intro-item">
+                            <span className="intro-title"> Home town </span>
+                            <a href="/">
+                                <div style={{backgroundImage: 'url(https://static.xx.fbcdn.net/rsrc.php/v3/y8/r/qDSwY9tayvO.png)'}} className="pluse-icon"></div>
+                                <span> Add home town </span>
+                            </a>
+                        </div>
+                        <div className="details-intro-item">
+                            <span className="intro-title"> Relationship </span>
+                            <a href="/">
+                                <div style={{backgroundImage: 'url(https://static.xx.fbcdn.net/rsrc.php/v3/y8/r/qDSwY9tayvO.png)'}} className="pluse-icon"></div>
+                                <span> Add a relationship status </span>
+                            </a>
+                        </div>
+                        <div className="details-intro-item">
+                            <span className="intro-title"> Website </span>
+                            <a href="/">
+                                <div style={{backgroundImage: 'url(https://static.xx.fbcdn.net/rsrc.php/v3/y8/r/qDSwY9tayvO.png)'}} className="pluse-icon"></div>
+                                <span> Add your portfolio link </span>
+                            </a>
+                        </div>
+                        <div className="details-intro-item">
+                            <span className="intro-title"> Social </span>
+                            <a href="/">
+                                <div style={{backgroundImage: 'url(https://static.xx.fbcdn.net/rsrc.php/v3/y8/r/qDSwY9tayvO.png)'}} className="pluse-icon"></div>
+                                <span> Add your social link </span>
+                            </a>
                         </div>
                     </div>
-                 </FBmodal>
-                <button className='edit-button'> Edit details </button>
+                    <div className="edit-details-footer">
+                            <div className="footer-left">
+                                <a href="/">Update your information</a>
+                            </div>
+                            <div className="footer-right">
+                                <button onClick={() => setEditDetails(!editDetails)}> Cancel </button>
+                                <button> Save </button>
+                            </div>
+                        </div>
+                    </FBmodal>
+                }
+                <button onClick={() => setEditDetails(true)} className='edit-button'> Edit details </button>
             </div>
             <div className="hobbies-box">
                 <ul>

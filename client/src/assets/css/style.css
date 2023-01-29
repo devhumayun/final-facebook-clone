@@ -1490,7 +1490,7 @@
   gap: 3px;
   background-color: #fff;
   font-family: inherit;
-  z-index: 9999999;
+  z-index: 9999;
 }
 
 .fb-profile-header .fb-cover-photo button:hover {
