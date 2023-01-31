@@ -29,6 +29,10 @@ const ProfileInfo = () => {
     const [position, setPosition] = useState("")
     const [company, setCompany] = useState("")
 
+    // state for education
+    const [ eduShow, setEduShow ] = useState(false)
+    const [ edu, setEdu ] = useState(user?.edu ? user?.edu : [])
+
     const handleBioShow = () => {
         setBioShow(!bioShow)
         setSaveBtn(true)
@@ -64,6 +68,14 @@ const ProfileInfo = () => {
        dispatch(updateUserInfo({ work : finalWork }, user._id, setJobShow))
     }
 
+    const handleUpdateEdu = (e) => {
+        e.preventDefault()
+        dispatch(updateUserInfo({ edu : [ ...user.edu ,{edu} ] }, user._id, setEduShow))
+    }
+    const handleEduShow = (e) => {
+        e.preventDefault()
+        setEduShow(!eduShow)
+    }
 
   return (
     <>
@@ -107,17 +119,21 @@ const ProfileInfo = () => {
             <div className="info-details-box">
                 <ul>
                     {
+                        user.cat &&
+                        <li>
+                        <img src="https://static.xx.fbcdn.net/rsrc.php/v3/y5/r/VMZOiSIJIwn.png?_nc_eui2=AeHO54gLgP1p4qZ56c0suxPAysO07LK9kRPKw7Tssr2RE1O8Km0Ntd4u00hHeVUjva7I30yrCXQ6mKpl4EBw9TvE" alt="" />
+                        <span> {user.cat} </span>
+                        </li>
+                    }
+                    {
                         user.work.map((data,index) => 
-                         <li>
+                         <li key={index}>
                            <img src="https://static.xx.fbcdn.net/rsrc.php/v3/yp/r/Q9Qu4uLgzdm.png?_nc_eui2=AeEjnKVx7JEML4acw-YtOzo4QE0O-ZdJm-NATQ75l0mb4873d4pSYZV4yvmB8F oKDxLwCUBqTjyOrajqwOC9liP2" alt="" />
                            <span> {data.position}  of <div className="bold-text"> {data.company} </div> </span>
                          </li>
                         )
                     }
-                    <li>
-                        <img src="https://static.xx.fbcdn.net/rsrc.php/v3/y5/r/VMZOiSIJIwn.png?_nc_eui2=AeHO54gLgP1p4qZ56c0suxPAysO07LK9kRPKw7Tssr2RE1O8Km0Ntd4u00hHeVUjva7I30yrCXQ6mKpl4EBw9TvE" alt="" />
-                        <span> Lives in <div className="bold-text">Comilla</div> </span>
-                    </li>
+
                     <li>
                         <img src="https://static.xx.fbcdn.net/rsrc.php/v3/yc/r/-e1Al38ZrZL.png?_nc_eui2=AeH5RjTiXLUDp6NYfWo4HetjyuB9xaeJwC_K4H3Fp4nALwM4P-qVzUGg41q4cWyWXDkkD_OQwo6I5LibT7LJtk4J" alt="" />
                         <span> From <div className="bold-text">Comilla</div> </span>
@@ -166,7 +182,7 @@ const ProfileInfo = () => {
                             {
                                 catShow &&  <QuickUpdate hide={setCatShow} data={{
                                     data : cat,
-                                    setData : handleCatChange,
+                                    setData : setCat,
                                 }}
                                 save ={handleUpdateCat}
                                 />
@@ -216,10 +232,41 @@ const ProfileInfo = () => {
                         </div>
                         <div className="details-intro-item">
                             <span className="intro-title"> Education </span>
-                            <a href="/">
+                            {
+                                user.edu.map((data, index) => 
+                                <li className='work-box' key={index}>
+
+                                    <div className="intro-item">
+                                        <div className="details">
+                                        <img src="https://static.xx.fbcdn.net/rsrc.php/v3/yS/r/jV4o8nAgIEh.png" alt="" />
+                                        <span> Studied at {data.edu} </span>
+                                        </div>
+                                        <div className="details-edit">
+                                            <div style={{ backgroundImage: "url(https://static.xx.fbcdn.net/rsrc.php/v3/y5/r/YQoVljLJSj5.png)" }} onClick={(e) => handleworkDelete(data.company)} className="icon">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            )
+                            }
+                            {
+                                !eduShow &&
+                                <a href="/">
                                 <div style={{backgroundImage: 'url(https://static.xx.fbcdn.net/rsrc.php/v3/y8/r/qDSwY9tayvO.png)'}} className="pluse-icon"></div>
-                                <span> Add secondary school </span>
+                                <span onClick={handleEduShow}> Add secondary school </span>
                             </a>
+                            }
+                            {
+                                eduShow && 
+                                <QuickUpdate hide={setEduShow} data={{
+                                    placeholder : "Set you high school",
+                                    data : edu,
+                                    setData : setEdu,
+                                }}
+                                save ={handleUpdateEdu}
+                                />
+
+                            }
                             <a href="/">
                                 <div style={{backgroundImage: 'url(https://static.xx.fbcdn.net/rsrc.php/v3/y8/r/qDSwY9tayvO.png)'}} className="pluse-icon"></div>
                                 <span> Add university   </span>
