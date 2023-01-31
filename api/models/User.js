@@ -73,6 +73,10 @@ const userModel = mongoose.Schema({
         type : Array,
         default : []
     },
+    uni : {
+        type : Array,
+        default : []
+    },
     living : {
         type : String
     },

@@ -461,7 +461,7 @@
 .info-details-box ul{
 	display: flex;
     flex-direction: column;
-    gap: 23px;
+    gap: 15px;
 }
 .info-details-box ul li{
 	display: flex;

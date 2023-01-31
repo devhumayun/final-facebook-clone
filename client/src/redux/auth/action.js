@@ -267,7 +267,7 @@ export const userLogout = () => (dispatch) => {
 /**
  * edit and update user
  */
-export const updateUserInfo = (data, id, setCatShow, setJobShow, setEduShow) => async (dispatch) => {
+export const updateUserInfo = (data, id, setCatShow, setJobShow, setEduShow, setUniShow) => async (dispatch) => {
 
     try {
        
@@ -280,6 +280,7 @@ export const updateUserInfo = (data, id, setCatShow, setJobShow, setEduShow) => 
             setCatShow(false)
             setJobShow(false)
             setEduShow(false)
+            setUniShow(false)
         })
         .catch(error => {
             createToast(error.responseli)
