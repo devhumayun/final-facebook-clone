@@ -667,6 +667,31 @@
 .details-intro-item .intro-item .details img{
 	filter: contrast(0.1);
 }
+
+li.work-box {}
+li.work-box .intro-item{
+	margin-bottom: 15px;
+}
+li.work-box .intro-item .details{}
+li.work-box .intro-item .details span{}
+li.work-box .intro-item .details span strong{
+	color: #000;
+}
+li.work-box .intro-item .details span strong:hover{
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+li.work-box .intro-item .details-edit{}
+li.work-box .intro-item .details-edit .icon {
+    width: 23px;
+    height: 23px;
+    display: block;
+    background-position: 0px 291px;
+	cursor: pointer;
+}
+
+
 .details-intro-item .intro-item .details span{}
 
 .details-intro-item .intro-item .details-edit{}

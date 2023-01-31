@@ -51,18 +51,19 @@ const ProfileInfo = () => {
         e.preventDefault()
         dispatch(updateUserInfo({ ...user, cat:cat }, user._id, setCatShow))
     }
-
     const handleJobShow = (e) => {
         e.preventDefault()
         setJobShow(!jobShow)
     }
-
     const handleUpdateJob = (e) => {
         e.preventDefault()  
-        dispatch(updateUserInfo({ work : [{ company, position }] }, user._id, setJobShow))
+        dispatch(updateUserInfo({ work : [ ...user.work , { company, position }] }, user._id, setJobShow))
+    }
+    const handleworkDelete = (company) => {
+       const finalWork = user.work.filter((data) => data.company !== company)
+       dispatch(updateUserInfo({ work : finalWork }, user._id, setJobShow))
     }
 
-    
 
   return (
     <>
@@ -105,14 +106,14 @@ const ProfileInfo = () => {
 
             <div className="info-details-box">
                 <ul>
-                    <li>
-                        <img src="https://static.xx.fbcdn.net/rsrc.php/v3/yp/r/Q9Qu4uLgzdm.png?_nc_eui2=AeEjnKVx7JEML4acw-YtOzo4QE0O-ZdJm-NATQ75l0mb4873d4pSYZV4yvmB8FoKDxLwCUBqTjyOrajqwOC9liP2" alt="" />
-                        <span> <strong> Profile: </strong> { user.cat ? user.cat : "" }</span>
-                    </li>
-                    <li>
-                        <img src="https://static.xx.fbcdn.net/rsrc.php/v3/yS/r/jV4o8nAgIEh.png?_nc_eui2=AeF7a1Zi8-elC6Lmxw4-pzb6C7xezJFSLOkLvF7MkVIs6acA_tUpxGzFLYuf9SspJvgKqXd7clrZx-ux6VTzWk36" alt="" />
-                        <span> Goes to <div className="bold-text">Syedpur High School</div> </span>
-                    </li>
+                    {
+                        user.work.map((data,index) => 
+                         <li>
+                           <img src="https://static.xx.fbcdn.net/rsrc.php/v3/yp/r/Q9Qu4uLgzdm.png?_nc_eui2=AeEjnKVx7JEML4acw-YtOzo4QE0O-ZdJm-NATQ75l0mb4873d4pSYZV4yvmB8F oKDxLwCUBqTjyOrajqwOC9liP2" alt="" />
+                           <span> {data.position}  of <div className="bold-text"> {data.company} </div> </span>
+                         </li>
+                        )
+                    }
                     <li>
                         <img src="https://static.xx.fbcdn.net/rsrc.php/v3/y5/r/VMZOiSIJIwn.png?_nc_eui2=AeHO54gLgP1p4qZ56c0suxPAysO07LK9kRPKw7Tssr2RE1O8Km0Ntd4u00hHeVUjva7I30yrCXQ6mKpl4EBw9TvE" alt="" />
                         <span> Lives in <div className="bold-text">Comilla</div> </span>
@@ -173,6 +174,23 @@ const ProfileInfo = () => {
                         </div>
                         <div className="details-intro-item">
                             <span className="intro-title"> Work </span>
+                            {
+                                user.work.map((data, index) => 
+                                    <li className='work-box' key={index}>
+
+                                        <div className="intro-item">
+                                            <div className="details">
+                                            <img src="https://static.xx.fbcdn.net/rsrc.php/v3/yp/r/Q9Qu4uLgzdm.png?_nc_eui2=AeEjnKVx7JEML4acw-YtOzo4QE0O-ZdJm-NATQ75l0mb4873d4pSYZV4yvmB8FoKDxLwCUBqTjyOrajqwOC9liP2" alt="" />
+                                            <span> {data.position} of <strong>{ data.company }</strong> </span>
+                                            </div>
+                                            <div className="details-edit">
+                                                <div style={{ backgroundImage: "url(https://static.xx.fbcdn.net/rsrc.php/v3/y5/r/YQoVljLJSj5.png)" }} onClick={() => handleworkDelete(data.company)} className="icon">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                )
+                            }
                             {
                                 !jobShow && 
                                 <a href="/">
