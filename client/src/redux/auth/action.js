@@ -2,7 +2,7 @@ import axios from 'axios'
 import Cookies from 'js-cookie';
 import { createToast } from '../../utility/toast';
 import { LOADER_START } from '../loader/loaderTypes';
-import { LOGIN_FAILED, LOGIN_REQUEST, LOGIN_SUCCESS, REGISTER_FAILED, REGISTER_REQUEST, REGISTER_SUCCESS, TOKEN_USER_FAILED, TOKEN_USER_REQ, TOKEN_USER_SUCCESS, USER_LOGOUT } from './actionType';
+import { LOGIN_FAILED, LOGIN_REQUEST, LOGIN_SUCCESS, REGISTER_FAILED, REGISTER_REQUEST, REGISTER_SUCCESS, TOKEN_USER_FAILED, TOKEN_USER_REQ, TOKEN_USER_SUCCESS, USER_LOGOUT, USER_UPDATE } from './actionType';
 
 
 // create user
@@ -262,4 +262,29 @@ export const userLogout = () => (dispatch) => {
     dispatch({
         type : USER_LOGOUT
     })
+}
+
+/**
+ * edit and update user
+ */
+export const updateUserInfo = (data, id, setCatShow, setJobShow) => async (dispatch) => {
+
+    try {
+       
+        await axios.put(`/api/v1/user/update-user/${id}`, data)
+        .then(res => {
+            dispatch({
+                type : USER_UPDATE,
+                payload : res.data.user
+            })
+            setCatShow(false)
+            setJobShow(false)
+        })
+        .catch(error => {
+            createToast(error.responseli)
+        });
+    } catch (error) {
+        console.log(error.response);
+    }
+
 }

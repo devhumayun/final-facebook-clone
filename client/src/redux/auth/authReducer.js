@@ -1,4 +1,4 @@
-import { LOGIN_FAILED, LOGIN_SUCCESS, REGISTER_FAILED, REGISTER_REQUEST, REGISTER_SUCCESS, TOKEN_USER_FAILED, TOKEN_USER_SUCCESS, USER_LOGOUT } from "./actionType";
+import { LOGIN_FAILED, LOGIN_SUCCESS, REGISTER_FAILED, REGISTER_REQUEST, REGISTER_SUCCESS, TOKEN_USER_FAILED, TOKEN_USER_SUCCESS, USER_LOGOUT, USER_UPDATE } from "./actionType";
 import { authInitial } from "./authInitial";
 
 
@@ -52,6 +52,13 @@ export const authReducer = ( state = authInitial, { type, payload } ) => {
                 ...state,
                 user : payload,
                 loginStatus : true
+            }
+        case USER_UPDATE :
+            return {
+                ...state,
+                user : {
+                    ...payload
+                }
             }
 
         case USER_LOGOUT :

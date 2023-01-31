@@ -2,20 +2,33 @@ import React, { useState } from 'react'
 import { GiBasketballBall } from 'react-icons/gi';
 import { IoIosFootball } from 'react-icons/io';
 import FBcard from '../../FBcard/FBcard';
-import {useSelector} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import FBmodal from '../../FBmodal/FBmodal';
 import QuickUpdate from '../../QuickUpdate/QuickUpdate';
+import { updateUserInfo } from '../../../redux/auth/action';
 
 const ProfileInfo = () => {
+    
+    const dispatch = useDispatch()
     const { user } = useSelector(state => state.auth)
-    // boi box show status
+   
+    // state for bio update
     const [bioShow, setBioShow] = useState(false)
-    const [editDetails, setEditDetails] = useState(false)
     const [bio, setBio] = useState(user.bio)
     // const [remain, setRemain] = useState( 101 - bio.length )
     const [saveBtn, setSaveBtn] = useState(true)
-    //   console.log(bio)
-    // handle bioBoxShow
+
+    // category state
+    const [editDetails, setEditDetails] = useState(false)
+    const [ catShow, setCatShow ] = useState(false)
+    const [ cat, setCat ] = useState(user?.cat ? user?.cat : "")
+
+    // state for work/job
+    const [ jobShow, setJobShow ] = useState(false)
+    const [ job, setJob ] = useState(user?.work ? user?.work : [])
+    const [position, setPosition] = useState("")
+    const [company, setCompany] = useState("")
+
     const handleBioShow = () => {
         setBioShow(!bioShow)
         setSaveBtn(true)
@@ -26,6 +39,30 @@ const ProfileInfo = () => {
         // setRemain(101 - e.target.value.length)
         setSaveBtn(false)
     }
+    const  handleCatChange = (e) => {
+        setCat(e.target.value)
+    }
+
+    const handleCatShow = (e) => {
+        e.preventDefault()
+        setCatShow(!catShow)
+    }
+    const handleUpdateCat = (e) => {
+        e.preventDefault()
+        dispatch(updateUserInfo({ ...user, cat:cat }, user._id, setCatShow))
+    }
+
+    const handleJobShow = (e) => {
+        e.preventDefault()
+        setJobShow(!jobShow)
+    }
+
+    const handleUpdateJob = (e) => {
+        e.preventDefault()  
+        dispatch(updateUserInfo({ work : [{ company, position }] }, user._id, setJobShow))
+    }
+
+    
 
   return (
     <>
@@ -70,7 +107,7 @@ const ProfileInfo = () => {
                 <ul>
                     <li>
                         <img src="https://static.xx.fbcdn.net/rsrc.php/v3/yp/r/Q9Qu4uLgzdm.png?_nc_eui2=AeEjnKVx7JEML4acw-YtOzo4QE0O-ZdJm-NATQ75l0mb4873d4pSYZV4yvmB8FoKDxLwCUBqTjyOrajqwOC9liP2" alt="" />
-                        <span> Inter 2nd year (science) at I aM nOt wORking " I Am stiLL stUyiNg".....! </span>
+                        <span> <strong> Profile: </strong> { user.cat ? user.cat : "" }</span>
                     </li>
                     <li>
                         <img src="https://static.xx.fbcdn.net/rsrc.php/v3/yS/r/jV4o8nAgIEh.png?_nc_eui2=AeF7a1Zi8-elC6Lmxw4-pzb6C7xezJFSLOkLvF7MkVIs6acA_tUpxGzFLYuf9SspJvgKqXd7clrZx-ux6VTzWk36" alt="" />
@@ -102,12 +139,62 @@ const ProfileInfo = () => {
                             <span className="header-subtitle"> Details you select will be public. </span>
                         </div>
                         <div className="details-intro-item">
+                            <span className="intro-title"> Category </span>
+                            {
+                                user.cat && !catShow &&
+                                <div className="intro-item">
+                                    <div className="details">
+                                       <img src="https://static.xx.fbcdn.net/rsrc.php/v3/yp/r/Q9Qu4uLgzdm.png?_nc_eui2=AeEjnKVx7JEML4acw-YtOzo4QE0O-ZdJm-NATQ75l0mb4873d4pSYZV4yvmB8FoKDxLwCUBqTjyOrajqwOC9liP2" alt="" />
+                                       <span> {user.cat} </span>
+                                    </div>
+                                    <div className="details-edit">
+                                        <div onClick={() => setCatShow(true)} className="icon">
+                                            <img src="https://static.xx.fbcdn.net/rsrc.php/v3/yW/r/OR6SzrfoMFg.png" alt="" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                            }
+                            {
+                                !catShow && !user.cat &&
+                                <a href="/">
+                                  <div style={{backgroundImage: 'url(https://static.xx.fbcdn.net/rsrc.php/v3/y8/r/qDSwY9tayvO.png)'}} className="pluse-icon"></div>
+                                  <span onClick={handleCatShow}> Add Category </span>
+                                 </a>
+                            }
+                            {
+                                catShow &&  <QuickUpdate hide={setCatShow} data={{
+                                    data : cat,
+                                    setData : handleCatChange,
+                                }}
+                                save ={handleUpdateCat}
+                                />
+                            }
+                        </div>
+                        <div className="details-intro-item">
                             <span className="intro-title"> Work </span>
-                            <a href="/">
-                                <div style={{backgroundImage: 'url(https://static.xx.fbcdn.net/rsrc.php/v3/y8/r/qDSwY9tayvO.png)'}} className="pluse-icon"></div>
-                                <span> Add a workplace </span>
-                            </a>
-                            <QuickUpdate placeholder="Descripation" />
+                            {
+                                !jobShow && 
+                                <a href="/">
+                                  <div style={{backgroundImage: 'url(https://static.xx.fbcdn.net/rsrc.php/v3/y8/r/qDSwY9tayvO.png)'}} className="pluse-icon"></div>
+                                  <span onClick={handleJobShow}> Add a workplace </span>
+                                </a>
+                            }
+                            {
+                                jobShow &&  <QuickUpdate hide={setJobShow} data={{
+                                    placeholder : "Set Company Name",
+                                    data : company,
+                                    setData : setCompany,
+                                }}
+                                data2={{
+                                    placeholder : "Set your position",
+                                    data : position,
+                                    setData : setPosition ,
+                                }}
+                                save ={handleUpdateJob}
+                                />
+                            }
+
                         </div>
                         <div className="details-intro-item">
                             <span className="intro-title"> Education </span>

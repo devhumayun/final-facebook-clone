@@ -422,6 +422,31 @@ export const loggedInUser = async ( req, res, next ) => {
   
 };
 
+/**
+ * update user info
+ */
+export const updateUser =async (req, res, next) => {
+   try {
+     const { id } = req.params
+     const data = req.body
+
+     const user = await User.findByIdAndUpdate(id, data, {
+        new : true
+     })
+
+     if(!user){
+        return next(createError(404, "User update failed"))
+     }
+     if(user){
+       return res.status(200).json({
+            message : "User update successfull",
+            user : user
+        })
+     }
+   } catch (error) {
+    next(error)
+   }
+}
 
 /**
  * @route /api/user/account-activate/:token

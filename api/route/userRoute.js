@@ -3,6 +3,7 @@ import express from 'express'
 import { accountActivation, 
     accountActivationByCode, 
     loggedInUser, 
+    updateUser,
     login, 
     register, 
     forgetPassword, 
@@ -21,6 +22,7 @@ const router = express.Router();
 router.post('/login', login)
 router.post('/register', register)
 router.get('/me', loggedInUser)
+router.put('/update-user/:id', updateUser)
 router.get('/account-activate/:token', accountActivation)
 router.post('/code-activation', accountActivationByCode )
 router.post('/resend-activation', resendActivationLink )
@@ -31,9 +33,6 @@ router.post('/password-reset-otp', passwordResetOtporLink )
 router.post('/password-reset-otp-check', passwordResetOtpCheck )
 router.post('/change-password', changePassword )
 router.post('/resend-reset-otp', resendResetPasswordOTP )
-
-
-
 
 // export router
 export default router

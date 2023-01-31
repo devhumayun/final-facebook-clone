@@ -1,13 +1,16 @@
 import React from 'react'
 import './QuickUpdate.css'
 
-const QuickUpdate = ({placeholder}) => {
+const QuickUpdate = ({ hide, data, data2, save}) => {
   return (
     <>
       <div className="add-or-edit-bio-box">
+       <textarea style={{ height:"50px", textAlign: "left !important" }} value={data.data} onChange={(e) => data.setData(e.target.value)}  placeholder={data.placeholder} name=''> { data.data }</textarea>
 
-        <input type="text" className="form-control" placeholder='Company' />
-       <textarea value=''  placeholder={placeholder} name=''>  </textarea>
+       {
+        data2 && 
+         <textarea style={{marginTop: "5px", height:"50px", textAlign: "left !important" }} value={data2.data} onChange={(e) => data2.setData(e.target.value)}  placeholder={data2.placeholder} name=''> { data2.data }</textarea>
+       }
 
         <div className="boi-status">
             <div className="status">
@@ -15,8 +18,8 @@ const QuickUpdate = ({placeholder}) => {
                 <span> Public </span>
             </div>
             <div className="boi-btn">
-                <button> Cancel </button>
-                <button className='active-save-btn'> Save </button>
+                <button onClick={() => hide(false)}> Cancel </button>
+                <button onClick={save} className='active-save-btn'> Save </button>
             </div>
         </div>
         </div>

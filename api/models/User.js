@@ -61,6 +61,10 @@ const userModel = mongoose.Schema({
         type : String,
         default : null
     },
+    cat : {
+        type : Array,
+        default : []
+    },
     work : {
         type : Array,
         default : []

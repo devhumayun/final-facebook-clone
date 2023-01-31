@@ -383,7 +383,7 @@
     background: #f7f7f7;
     border: 1px solid #CED0D4;
     border-radius: 5px;
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 500;
 }
 .add-or-edit-bio-box textarea:focus{
@@ -461,7 +461,7 @@
 .info-details-box ul{
 	display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 23px;
 }
 .info-details-box ul li{
 	display: flex;
@@ -475,9 +475,13 @@
     object-fit: cover;
     filter: contrast(0.1);
 }
+
 .info-details-box ul li span{
 	color: #606770;
-    font-size: 17px;
+    font-size: 16px;
+}
+.info-details-box ul li span strong{
+	color: #000;
 }
 .info-details-box ul li:last-child{
 	margin-bottom: 10px;
@@ -649,6 +653,29 @@
     filter: invert(39%) sepia(57%) saturate(200%) saturate(200%) saturate(200%) saturate(147.75%) hue-rotate(202deg) brightness(97%) contrast(96%);
 }
 .edit-details-intro .details-intro-item .intro-title a sapn{}
+
+.details-intro-item .intro-item{
+	display: flex;
+    justify-content: space-between;
+}
+.details-intro-item .intro-item .details{
+	display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-left: 5px;
+}
+.details-intro-item .intro-item .details img{
+	filter: contrast(0.1);
+}
+.details-intro-item .intro-item .details span{}
+
+.details-intro-item .intro-item .details-edit{}
+.details-intro-item .intro-item .details-edit .icon{}
+.details-intro-item .intro-item .details-edit .icon img{
+	cursor: pointer;
+}
+
+
 
 .edit-details-footer{
 	display: flex;
