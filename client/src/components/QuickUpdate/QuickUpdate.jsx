@@ -2,10 +2,12 @@ import React from 'react'
 import './QuickUpdate.css'
 
 const QuickUpdate = ({ hide, data, data2, save}) => {
+
+  
   return (
     <>
       <div className="add-or-edit-bio-box">
-       <textarea style={{ height:"50px", textAlign: "left !important" }} value={data.data} onChange={(e) => data.setData(e.target.value)}  placeholder={data.placeholder} name=''> { data.data }</textarea>
+       <textarea style={{ height:"50px", textAlign: "left !important" }} value={data.data} onChange={(e) => data.setData(e.target.value)}  placeholder={data.placeholder} name='data1'>  </textarea>
 
        {
         data2 && 

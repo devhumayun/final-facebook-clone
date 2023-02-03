@@ -6,6 +6,8 @@ import {useDispatch, useSelector} from 'react-redux'
 import FBmodal from '../../FBmodal/FBmodal';
 import QuickUpdate from '../../QuickUpdate/QuickUpdate';
 import { updateUserInfo } from '../../../redux/auth/action';
+import FullWidthPopup from '../../FullWidthPopup/FullWidthPopup';
+import StorySlider from '../../StorySlider/StorySlider';
 
 const ProfileInfo = () => {
     
@@ -37,6 +39,17 @@ const ProfileInfo = () => {
     const [ uniShow, setUniShow ] = useState(false)
     const [ uni, setUni ] = useState(user?.uni ? user?.uni : [])
 
+    // state for home city
+    const [ cityShow, setCityShow ] = useState(false)
+    const [ city, setCity ] = useState( user.home_city ? user.home_city : "" )
+
+    // state for home town
+    const [ townShow, setTownShow ] = useState(false)
+    const [ town, setTown ] = useState(user.home_town ? user.home_town : "")
+
+    // state for featured slider
+    const [featuredShow, setFeaturedShow] = useState(false)
+
     const handleBioShow = () => {
         setBioShow(!bioShow)
         setSaveBtn(true)
@@ -46,9 +59,6 @@ const ProfileInfo = () => {
         setBio(e.target.value)
         // setRemain(101 - e.target.value.length)
         setSaveBtn(false)
-    }
-    const  handleCatChange = (e) => {
-        setCat(e.target.value)
     }
 
     const handleCatShow = (e) => {
@@ -74,7 +84,7 @@ const ProfileInfo = () => {
 
     const handleUpdateEdu = (e) => {
         e.preventDefault()
-        dispatch(updateUserInfo({ edu : [ ...user.edu ,{edu} ] }, user._id, setEduShow))
+        dispatch(updateUserInfo({ edu : [ ...user.edu , {edu} ] }, user._id, setEduShow))
     }
     const handleEduShow = (e) => {
         e.preventDefault()
@@ -88,6 +98,24 @@ const ProfileInfo = () => {
     const handleUpdateUni = (e) => {
         e.preventDefault()
         dispatch(updateUserInfo({ uni : [ ...user.uni ,{uni} ] }, user._id, setUniShow))
+    }
+
+    const handleCityShow = (e) => {
+        e.preventDefault()
+        setCityShow(!cityShow)
+    }
+    const handleCityAdd = (e) => {
+        e.preventDefault()
+        dispatch(updateUserInfo({ ...user, home_city:city }, user._id, setCityShow))
+    }
+
+    const handleHomeTownShow = (e) => {
+        e.preventDefault()
+        setTownShow(!townShow)
+    }
+    const handleAddHomeTown = (e) => {
+        e.preventDefault()
+        dispatch(updateUserInfo({ ...user, home_town:town }, user._id, setTownShow))
     }
 
   return (
@@ -162,11 +190,21 @@ const ProfileInfo = () => {
                             </li>
                         )
                     }
+                    {
+                        user.home_city &&
+                        <li>
+                          <img src="https://static.xx.fbcdn.net/rsrc.php/v3/yc/r/-e1Al38ZrZL.png?_nc_eui2=AeH5RjTiXLUDp6NYfWo4HetjyuB9xaeJwC_K4H3Fp4nALwM4P-qVzUGg41q4cWyWXDkkD_OQwo6I5LibT7LJtk4J" alt="" />
+                          <span> Lives in <div className="bold-text">{user.home_city}</div> </span>
+                        </li>
+                    }
+                    {
+                        user.home_town &&
+                        <li>
+                          <img src="https://static.xx.fbcdn.net/rsrc.php/v3/yc/r/-e1Al38ZrZL.png?_nc_eui2=AeH5RjTiXLUDp6NYfWo4HetjyuB9xaeJwC_K4H3Fp4nALwM4P-qVzUGg41q4cWyWXDkkD_OQwo6I5LibT7LJtk4J" alt="" />
+                          <span> From  <div className="bold-text">{user.home_town}</div> </span>
+                        </li>
+                    }
                     
-                    <li>
-                        <img src="https://static.xx.fbcdn.net/rsrc.php/v3/yc/r/-e1Al38ZrZL.png?_nc_eui2=AeH5RjTiXLUDp6NYfWo4HetjyuB9xaeJwC_K4H3Fp4nALwM4P-qVzUGg41q4cWyWXDkkD_OQwo6I5LibT7LJtk4J" alt="" />
-                        <span> From <div className="bold-text">Comilla</div> </span>
-                    </li>
                     <li>
                         <img src="https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/S0aTxIHuoYO.png?_nc_eui2=AeGzFeiXfu1DAFMwvznNRBP9rlG3yvH4CWGuUbfK8fgJYdEbOvOFOJSY777frC2826_rXGds6kWKxuTr2s2drikX" alt="" />
                         <span> It's complicated </span>
@@ -332,17 +370,71 @@ const ProfileInfo = () => {
                         </div>
                         <div className="details-intro-item">
                             <span className="intro-title"> Current town/city </span>
-                            <a href="/">
-                                <div style={{backgroundImage: 'url(https://static.xx.fbcdn.net/rsrc.php/v3/y8/r/qDSwY9tayvO.png)'}} className="pluse-icon"></div>
-                                <span> Add city </span>
-                            </a>
+                            {
+                                user.home_city && 
+                                <div style={{marginBottom : "10px"}} className="intro-item">
+                                    <div className="details">
+                                        <img src="https://static.xx.fbcdn.net/rsrc.php/v3/yc/r/-e1Al38ZrZL.png?_nc_eui2=AeH5RjTiXLUDp6NYfWo4HetjyuB9xaeJwC_K4H3Fp4nALwM4P-qVzUGg41q4cWyWXDkkD_OQwo6I5LibT7LJtk4J" alt="" />
+                                        <span> Lives in <strong>{user.home_city}</strong> </span>
+                                    </div>
+                                    <div className="details-edit">
+                                        <div onClick={() => setCityShow(true)} className="icon">
+                                            <img src="https://static.xx.fbcdn.net/rsrc.php/v3/yW/r/OR6SzrfoMFg.png" alt="" />
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                            {
+                                !cityShow && !user.home_city &&
+                                <a href="/">
+                                   <div style={{backgroundImage: 'url(https://static.xx.fbcdn.net/rsrc.php/v3/y8/r/qDSwY9tayvO.png)'}} className="pluse-icon"></div>
+                                  <span onClick={handleCityShow}> Add city </span>
+                                </a>
+                            }
+                            {
+                                cityShow && 
+                                <QuickUpdate hide={setCityShow} data={{
+                                    placeholder : "Add Home City",
+                                    data : city,
+                                    setData : setCity,
+                                }}
+                                save ={handleCityAdd}
+                                />
+                            }
                         </div>
                         <div className="details-intro-item">
                             <span className="intro-title"> Home town </span>
-                            <a href="/">
+                            {
+                                user.home_town && !townShow &&
+                                <div style={{marginBottom : "10px"}} className="intro-item">
+                                    <div className="details">
+                                        <img src="https://static.xx.fbcdn.net/rsrc.php/v3/yc/r/-e1Al38ZrZL.png?_nc_eui2=AeH5RjTiXLUDp6NYfWo4HetjyuB9xaeJwC_K4H3Fp4nALwM4P-qVzUGg41q4cWyWXDkkD_OQwo6I5LibT7LJtk4J" alt="" />
+                                        <span> Lives in <strong>{user.home_town}</strong> </span>
+                                    </div>
+                                    <div className="details-edit">
+                                        <div onClick={() => setTownShow(true)} className="icon">
+                                            <img src="https://static.xx.fbcdn.net/rsrc.php/v3/yW/r/OR6SzrfoMFg.png" alt="" />
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                            {
+                                !user.home_town &&
+                                <a href="/">
                                 <div style={{backgroundImage: 'url(https://static.xx.fbcdn.net/rsrc.php/v3/y8/r/qDSwY9tayvO.png)'}} className="pluse-icon"></div>
-                                <span> Add home town </span>
+                                <span onClick={handleHomeTownShow}> Add home town </span>
                             </a>
+                            }
+                            {
+                                townShow &&
+                                <QuickUpdate hide={setTownShow} data={{
+                                    placeholder : "Add Home Add",
+                                    data : town,
+                                    setData : setTown,
+                                }}
+                                save ={handleAddHomeTown}
+                                />
+                            }
                         </div>
                         <div className="details-intro-item">
                             <span className="intro-title"> Relationship </span>
@@ -397,17 +489,20 @@ const ProfileInfo = () => {
                 <button className='edit-button'> Edit hobbies </button>
             </div>
             <div className="featured-img-box">
-                <div className="feature-img">
-                    <div className="featured-item">
-                      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfGngqhUHTdoUH_hrxRS66jNK4XYRy0AwNU6laJO6y0NWfHN_ngNjIC6Zs4DnhkyWrNVs&usqp=CAU" alt="" />
-                    </div>
-                    <div className="featured-item">
-                      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfGngqhUHTdoUH_hrxRS66jNK4XYRy0AwNU6laJO6y0NWfHN_ngNjIC6Zs4DnhkyWrNVs&usqp=CAU" alt="" />
-                    </div>
-                    <div className="featured-item">
-                      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfGngqhUHTdoUH_hrxRS66jNK4XYRy0AwNU6laJO6y0NWfHN_ngNjIC6Zs4DnhkyWrNVs&usqp=CAU" alt="" />
+                <div className="featured-wraper">
+                    <div className="featured-img">
+                        <div className="featured-item" onClick={() => setFeaturedShow(!featuredShow)}>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfGngqhUHTdoUH_hrxRS66jNK4XYRy0AwNU6laJO6y0NWfHN_ngNjIC6Zs4DnhkyWrNVs&usqp=CAU" alt="" />
+                        </div>
+                        <span> + 11 </span>
                     </div>
                 </div>
+                {
+                    featuredShow && 
+                    <FullWidthPopup hide={setFeaturedShow} >
+                        <StorySlider />
+                    </FullWidthPopup>
+                }
                 <button className='edit-button'> Edit Featured </button>
             </div>
         </FBcard>

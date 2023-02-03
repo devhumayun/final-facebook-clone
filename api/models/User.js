@@ -77,7 +77,7 @@ const userModel = mongoose.Schema({
         type : Array,
         default : []
     },
-    living : {
+    home_city : {
         type : String
     },
     home_town : {

@@ -1,0 +1,26 @@
+.story-slider-header{
+    background-color: transparent !important;
+    display: flex;
+    align-items: center;
+    padding: 8px 11px;
+    box-shadow: none !important;
+}
+.story-slider-header button {
+    background: transparent;
+    cursor: pointer;
+}
+.story-slider-header button img{
+    filter: brightness(2.5);
+}
+
+.full-width-slider {
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+}
