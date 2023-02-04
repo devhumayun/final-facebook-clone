@@ -81,6 +81,7 @@
     align-items: center;
     justify-content: center;
     transition: .3s;
+    cursor: pointer;
 }
 .stroy-slider-warper .story-slider .navigation button:hover{
     background-color: #FFF;

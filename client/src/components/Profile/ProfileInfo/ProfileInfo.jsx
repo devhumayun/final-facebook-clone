@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
+import './ProfileInfo.css'
 import { GiBasketballBall } from 'react-icons/gi';
 import { IoIosFootball } from 'react-icons/io';
+import baner from '../../../assets/images/baner.png'
 import FBcard from '../../FBcard/FBcard';
 import {useDispatch, useSelector} from 'react-redux'
 import FBmodal from '../../FBmodal/FBmodal';
@@ -48,7 +50,9 @@ const ProfileInfo = () => {
     const [ town, setTown ] = useState(user.home_town ? user.home_town : "")
 
     // state for featured slider
-    const [featuredShow, setFeaturedShow] = useState(false)
+    const [ featuredShow, setFeaturedShow ] = useState(false)
+    const [ featuredAddShow, setFeaturedAddShow ] = useState(false)
+    const [ featuredUpload, setFeatureUpload ] = useState(false)
 
     const handleBioShow = () => {
         setBioShow(!bioShow)
@@ -503,7 +507,55 @@ const ProfileInfo = () => {
                         <StorySlider hide={setFeaturedShow} />
                     </FullWidthPopup>
                 }
-                <button className='edit-button'> Edit Featured </button>
+                {
+                    featuredAddShow && !featuredUpload &&
+                    <FBmodal title={"Edit Featured"}  closePopup={setFeaturedAddShow}>
+                        <div className="add-show-featured">
+                            <img src={baner} alt="" />
+                            <button onClick={() => setFeatureUpload(true)}> Add New </button>
+                        </div>
+                    </FBmodal>
+                }
+                {
+                    featuredUpload &&
+                    <FBmodal title={'Edit featured collection'}>
+                        <div className="featured-upload">
+                           <div className="upload-field">
+                                <label htmlFor="upload">
+                                  <span> Upload Photos </span>
+                                  <input type="file" id='upload' style={{ display: "none" }} />
+                                </label>
+                           </div>
+                           <div className="upload-area">
+                            <div className="upload-title">
+                                <h4> Stories </h4>
+                                <span> This includes any active stories and your story archive. </span>
+                            </div>
+                            <div className="upload-all-item">
+                                <h4> Uploaded photos </h4>
+                                <div className="upload-item-wraper">
+                                    <div className="upload-item">
+                                      <img src="" alt="" />
+                                    </div>
+                                    <div className="upload-item">
+                                      <img src="" alt="" />
+                                    </div>
+                                    <div className="upload-item">
+                                      <img src="" alt="" />
+                                    </div>
+                                    <div className="upload-item">
+                                      <img src="" alt="" />
+                                    </div>
+                                    <div className="upload-item">
+                                      <img src="" alt="" />
+                                    </div>
+                                </div>
+                            </div>
+                           </div>
+                        </div>
+                    </FBmodal>
+                }
+                <button onClick={() => setFeaturedAddShow(true)} className='edit-button'> Edit Featured </button>
             </div>
         </FBcard>
     </>

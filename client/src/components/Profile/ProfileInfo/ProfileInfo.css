@@ -1,0 +1,74 @@
+.add-show-featured {
+    text-align: center;
+    padding: 10px;
+}
+.add-show-featured img{
+    cursor: pointer;
+}
+.add-show-featured button {
+    width: 95%;
+    border: none;
+    color: #3578E5;
+    background: #e1ebfb;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: inherit;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.featured-upload{}
+.featured-upload .upload-field{
+    margin: 17px 0px;
+}
+.featured-upload .upload-field label{
+    
+}
+.featured-upload .upload-field label span{
+    width: 95%;
+    border: none;
+    color: #3578E5;
+    background: #e1ebfb;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: inherit;
+    font-weight: 600;
+    display: block;
+    margin: auto;
+    text-align: center;
+    cursor: pointer;
+}
+
+.featured-upload .upload-field label input{}
+
+.featured-upload .upload-area{}
+.featured-upload .upload-area .upload-title{
+    padding: 39px 20px;
+    display: none;
+}
+.featured-upload .upload-area .upload-title h4{}
+.featured-upload .upload-area .upload-title span{}
+
+.featured-upload .upload-area {}
+.featured-upload .upload-area .upload-all-item{
+    padding: 0px 20px;
+}
+.featured-upload .upload-area .upload-all-item h4{
+    font-family: inherit;
+    margin-bottom: 10px;
+}
+.featured-upload .upload-area .upload-all-item  .upload-item-wraper{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+.featured-upload .upload-area .upload-all-item .upload-item-wraper .upload-item{
+    width: 130px;
+    height: 200px;
+    background: #ccc;
+    border-radius: 5px;
+}
+.featured-upload .upload-area .upload-all-item .upload-item-wraper .upload-item img{}
+
