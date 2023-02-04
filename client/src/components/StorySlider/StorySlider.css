@@ -11,6 +11,7 @@
     height: 85vh;
     background-color: #1F2024;
     border-radius: 10px;
+    position: relative;
 }
 .stroy-slider-warper .story-slider .slider-item{
     background-position: center;
@@ -21,3 +22,84 @@
     overflow: hidden;
     border-radius: 10px;
 }
+.stroy-slider-warper .story-slider .progress-bar-wraper {
+    display: flex;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    right: 0;
+    gap: 5px;
+    padding: 0px 7px;
+}
+.stroy-slider-warper .story-slider .progress-bar-wraper .progress-bars{
+    width: 100%;
+    height: 4px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #8B8C8D;
+}
+.stroy-slider-warper .story-slider .progress-bar-wraper .progress-bars .progress{
+    background: #FFF;
+    width: 0%;
+    height: 4px;
+}
+.stroy-slider-warper .story-slider .progress-bar-wraper .progress-bars.active .progress{
+    width: 100%;
+    animation: 5s  stroySliderProgress;
+}
+@keyframes stroySliderProgress  {
+    0%{
+        width: 0%;
+    }
+    100% {
+        width: 100%;
+    }
+}
+.stroy-slider-warper .story-slider .progress-bar-wraper .progress-bars.viewed .progress{
+    width: 100%;
+}
+
+.stroy-slider-warper .story-slider .navigation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+.stroy-slider-warper .story-slider .navigation button {
+    background: #a7a1a1;
+    font-size: 42px;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .3s;
+}
+.stroy-slider-warper .story-slider .navigation button:hover{
+    background-color: #FFF;
+}
+
+.stroy-slider-warper .story-slider .navigation .prev {
+    transform: translate(-80px, 0px);
+    transition: .4s;
+}
+.stroy-slider-warper .story-slider .navigation .prev:hover{
+    transform: translate(-85px, 0px)
+}
+.stroy-slider-warper .story-slider .navigation .prev button{}
+.stroy-slider-warper .story-slider .navigation .next{
+    transform: translate(80px, 0px);
+    transition: .4s;
+}
+.stroy-slider-warper .story-slider .navigation .next:hover{
+    transform: translate(85px, 0px)
+}
+.stroy-slider-warper .story-slider .navigation .next button{}
+

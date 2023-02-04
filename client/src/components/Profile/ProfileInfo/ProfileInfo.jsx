@@ -500,7 +500,7 @@ const ProfileInfo = () => {
                 {
                     featuredShow && 
                     <FullWidthPopup hide={setFeaturedShow} >
-                        <StorySlider />
+                        <StorySlider hide={setFeaturedShow} />
                     </FullWidthPopup>
                 }
                 <button className='edit-button'> Edit Featured </button>
