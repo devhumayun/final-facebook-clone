@@ -28,7 +28,7 @@
     color: #000;
 }
 
-.fb-modal-wrapper .bf-modal-popup .fb-modal-header  button{
+.fb-modal-wrapper .bf-modal-popup .fb-modal-header button{
     position: absolute;
     top: 17px;
     right: 14px;
@@ -38,6 +38,11 @@
     height: 40px;
     width: 40px;
     transition: all ease-in-out .3s;
+}
+.fb-modal-wrapper .bf-modal-popup .fb-modal-header button.back{
+    top: 17px;
+    left: 14px;
+    right: 0px;
 }
 .fb-modal-wrapper .bf-modal-popup .fb-modal-header  button:hover{
     background: #e3e4e4;

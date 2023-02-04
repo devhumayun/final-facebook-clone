@@ -43,7 +43,10 @@
 
 .featured-upload .upload-field label input{}
 
-.featured-upload .upload-area{}
+.featured-upload .upload-area{
+    overflow: scroll;
+    overflow-x: hidden;
+}
 .featured-upload .upload-area .upload-title{
     padding: 39px 20px;
     display: none;
@@ -63,12 +66,52 @@
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
+    height: 150px;
 }
 .featured-upload .upload-area .upload-all-item .upload-item-wraper .upload-item{
     width: 130px;
     height: 200px;
     background: #ccc;
     border-radius: 5px;
+    overflow: hidden;
 }
-.featured-upload .upload-area .upload-all-item .upload-item-wraper .upload-item img{}
+.featured-upload .upload-area .upload-all-item .upload-item-wraper .upload-item img{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 5px;
+}
 
+.featured-upload-footer {
+    display: flex;
+    padding: 16px 20px;
+    margin-top: 15px;
+    border-top: 1px solid #ddd;
+    justify-content: flex-end;
+    gap: 10px;
+}
+.featured-upload-footer button{
+    border: none;
+    font-size: 17px;
+    font-family: inherit;
+    font-weight: 500;
+}
+
+.featured-upload-footer button.featured-cancel{
+    padding: 8px 35px;
+    background: #ebecef;
+    color: #000;
+    border-radius: 5px;
+}
+.featured-upload-footer button.featured-cancel:hover{
+    background: #D8DADF;
+}
+.featured-upload-footer button.featured-next{
+    padding: 8px 35px;
+    background: #1e6bc8;
+    color: #fff;
+    border-radius: 5px;
+}
+.featured-upload-footer button.featured-next:hover{
+    background: #1A6ED8;
+}

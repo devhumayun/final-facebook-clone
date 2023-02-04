@@ -122,6 +122,12 @@ const ProfileInfo = () => {
         dispatch(updateUserInfo({ ...user, home_town:town }, user._id, setTownShow))
     }
 
+    // upload featured back
+    const handleUploadBack = () => {
+        setFeaturedAddShow(true)
+        setFeatureUpload(false)
+    }
+
   return (
     <>
         <FBcard>
@@ -518,7 +524,7 @@ const ProfileInfo = () => {
                 }
                 {
                     featuredUpload &&
-                    <FBmodal title={'Edit featured collection'}>
+                    <FBmodal title={'Edit featured collection'} back={handleUploadBack}>
                         <div className="featured-upload">
                            <div className="upload-field">
                                 <label htmlFor="upload">
@@ -535,22 +541,14 @@ const ProfileInfo = () => {
                                 <h4> Uploaded photos </h4>
                                 <div className="upload-item-wraper">
                                     <div className="upload-item">
-                                      <img src="" alt="" />
-                                    </div>
-                                    <div className="upload-item">
-                                      <img src="" alt="" />
-                                    </div>
-                                    <div className="upload-item">
-                                      <img src="" alt="" />
-                                    </div>
-                                    <div className="upload-item">
-                                      <img src="" alt="" />
-                                    </div>
-                                    <div className="upload-item">
-                                      <img src="" alt="" />
+                                      <img src="https://i0.wp.com/post.healthline.com/wp-content/uploads/2019/10/Baby_Sleeping_Blanket_1296x728-header-1296x728.jpg?w=1155&h=1528" alt="" />
                                     </div>
                                 </div>
                             </div>
+                           </div>
+                           <div className="featured-upload-footer">
+                             <button className='featured-cancel'> Cancel </button>
+                             <button className='featured-next'> Next </button>
                            </div>
                         </div>
                     </FBmodal>
