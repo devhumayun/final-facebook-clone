@@ -53,6 +53,9 @@ const ProfileInfo = () => {
     const [ featuredShow, setFeaturedShow ] = useState(false)
     const [ featuredAddShow, setFeaturedAddShow ] = useState(false)
     const [ featuredUpload, setFeatureUpload ] = useState(false)
+    const [ featuredPrev, setFeaturedPrev ] = useState([])
+
+    console.log(featuredPrev)
 
     const handleBioShow = () => {
         setBioShow(!bioShow)
@@ -126,6 +129,17 @@ const ProfileInfo = () => {
     const handleUploadBack = () => {
         setFeaturedAddShow(true)
         setFeatureUpload(false)
+        setFeaturedPrev([])
+    }
+    // upload photo
+    const handleFeaturePhoto = (e) => {
+       
+        let upload_image = []
+        for (let index = 0; index < e.target.files.length; index++) {  
+         const image = URL.createObjectURL(e.target.files[index])
+         upload_image.push(image)
+        }
+        setFeaturedPrev(() => ([...featuredPrev, ...upload_image]))
     }
 
   return (
@@ -529,7 +543,7 @@ const ProfileInfo = () => {
                            <div className="upload-field">
                                 <label htmlFor="upload">
                                   <span> Upload Photos </span>
-                                  <input type="file" id='upload' style={{ display: "none" }} />
+                                  <input multiple={true} onChange={handleFeaturePhoto} type="file" id='upload' style={{ display: "none" }} />
                                 </label>
                            </div>
                            <div className="upload-area">
@@ -540,9 +554,18 @@ const ProfileInfo = () => {
                             <div className="upload-all-item">
                                 <h4> Uploaded photos </h4>
                                 <div className="upload-item-wraper">
-                                    <div className="upload-item">
-                                      <img src="https://i0.wp.com/post.healthline.com/wp-content/uploads/2019/10/Baby_Sleeping_Blanket_1296x728-header-1296x728.jpg?w=1155&h=1528" alt="" />
-                                    </div>
+                                    {
+                                        featuredPrev.map((item,index) => (
+                                           <>
+                                            <div className="upload-item" key={index}>
+                                            <img src={item} alt="" />
+                                                <div className="round-check">
+                                                    <input type="checkbox" checked={true} />
+                                                </div>
+                                           </div>
+                                           </>
+                                        ))
+                                    }                  
                                 </div>
                             </div>
                            </div>

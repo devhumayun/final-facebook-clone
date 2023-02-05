@@ -74,6 +74,7 @@
     background: #ccc;
     border-radius: 5px;
     overflow: hidden;
+    position: relative;
 }
 .featured-upload .upload-area .upload-all-item .upload-item-wraper .upload-item img{
     width: 100%;
@@ -114,4 +115,17 @@
 }
 .featured-upload-footer button.featured-next:hover{
     background: #1A6ED8;
+}
+
+
+.round-check {
+    width: 24px;
+    height: 24px;
+    background: red;
+    position: absolute;
+    top: 78%;
+    right: 10%;
+    display: block;
+    text-align: center;
+    border-radius: 50%;
 }
