@@ -133,13 +133,8 @@ const ProfileInfo = () => {
     }
     // upload photo
     const handleFeaturePhoto = (e) => {
-       
-        let upload_image = []
-        for (let index = 0; index < e.target.files.length; index++) {  
-         const image = URL.createObjectURL(e.target.files[index])
-         upload_image.push(image)
-        }
-        setFeaturedPrev(() => ([...featuredPrev, ...upload_image]))
+    
+        
     }
 
   return (
@@ -558,9 +553,13 @@ const ProfileInfo = () => {
                                         featuredPrev.map((item,index) => (
                                            <>
                                             <div className="upload-item" key={index}>
-                                            <img src={item} alt="" />
+                                            <label htmlFor="checklabelid">
+                                              <img src={item} alt="" />
+                                            </label>
                                                 <div className="round-check">
-                                                    <input type="checkbox" checked={true} />
+                                                    <label htmlFor="checklabelid">
+                                                        <input type="checkbox" id='checklabelid' />
+                                                    </label>
                                                 </div>
                                            </div>
                                            </>

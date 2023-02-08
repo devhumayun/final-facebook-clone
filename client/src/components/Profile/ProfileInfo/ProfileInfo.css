@@ -117,15 +117,38 @@
     background: #1A6ED8;
 }
 
-
 .round-check {
+    position: absolute;
+    right: 34px;
+    bottom: 33px;
+}
+
+.round-check label {
     width: 24px;
     height: 24px;
-    background: red;
-    position: absolute;
-    top: 78%;
-    right: 10%;
-    display: block;
     text-align: center;
+    background: #fff;
+    cursor: pointer;
+    position: absolute;
+    line-height: 24px;
     border-radius: 50%;
+}
+.round-check label::after {
+    content: "";
+    position: absolute;
+    top: -2px;
+    width: 23px;
+    right: -2px;
+    line-height: 23px;
+    height: 23px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+}
+
+.round-check label input[type="checkbox"]{
+    visibility: hidden;
+}
+.round-check label input[type="checkbox"]:checked {
+    visibility: inherit;
+    background-color: transparent;
 }
