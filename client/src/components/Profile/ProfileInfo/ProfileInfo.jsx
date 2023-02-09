@@ -134,6 +134,8 @@ const ProfileInfo = () => {
     // upload photo
     const handleFeaturePhoto = (e) => {
     
+        const image = Array.from(e.target.files)
+
         
     }
 
