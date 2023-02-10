@@ -35,4 +35,4 @@ router.post('/change-password', changePassword )
 router.post('/resend-reset-otp', resendResetPasswordOTP )
 
 // export router
-export default router
+export default router1

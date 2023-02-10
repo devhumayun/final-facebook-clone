@@ -515,7 +515,7 @@ export const accountActivationByCode = async (req,res,next) => {
     // get activation user
     const user = await User.findOne().or([{ email : auth }, {mobile : auth}])
     
-    // check user`
+    // check user
     if(!user){
         next(createError(400, "Activation user not found"))
     } else {
@@ -726,10 +726,6 @@ export const findUserAccount = async ( req, res, next ) => {
 
         }else {
             next(createError(400, "Invalid email or mobile number"))
-        }
-
-        if(email_data){
-
         }
         
     } catch (error) {
