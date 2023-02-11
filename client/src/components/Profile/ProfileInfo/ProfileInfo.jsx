@@ -55,7 +55,7 @@ const ProfileInfo = () => {
     const [ featuredUpload, setFeatureUpload ] = useState(false)
     const [ featuredPhotos, setFeaturedPhotos ] = useState([])
     const [ featuredPhotosChecked, setFeaturedPhotosChecked ] = useState([])
-    const [ featuredPhotosNext, setFeaturedPhotosNext ] = useState(true)
+    const [ featuredPhotosNext, setFeaturedPhotosNext ] = useState(false)
 
     const handleBioShow = () => {
         setBioShow(!bioShow)
@@ -162,7 +162,7 @@ const ProfileInfo = () => {
 
   return (
     <>
-        <FBcard>
+    <FBcard>
             <h3> Intro </h3>
             <div className="bio-box"> 
             
@@ -596,7 +596,7 @@ const ProfileInfo = () => {
                            </div>
                            <div className="featured-upload-footer">
                              <button onClick={handleUploadBack} className='featured-cancel'> Cancel </button>
-                             <button className='featured-next'> Next </button>
+                             <button onClick={() => setFeaturedPhotosNext(true)} className='featured-next'> Next </button>
                            </div>
                         </div>
                     </FBmodal>
@@ -604,25 +604,58 @@ const ProfileInfo = () => {
                 {
                     featuredPhotosNext &&
                     <FBmodal title="Edit featured collection">
-                        <div className="featured-next-warper">
+                        <div className="feainajoinY+-kknlinkedtured-next-warper">
                             <div className="featured-next">
                                 <div className="featured-cover">
                                     <span>Cover</span>
                                     <div className="collection-cover-photo">
                                         <img src="https://m.wsj.net/video/20151123/112315lunchbabysmiles/112315lunchbabysmiles_1280x720.jpg" alt="" />
+                                        <div style={{backgroundImage: `url(https://static.xx.fbcdn.net/rsrc.php/v3/yo/r/pW2TMyFiB4i.png)`}} className="featured-camera"></div>
                                     </div>
                                 </div>
                                 <div className="featured-collection-name">
-                                    <input type="text" placeholder='Title' />
+                                    <input type="text" placeholder='Collection Name' />
                                 </div>
-                                <div className="featured-collection-items"></div>
+                                <div className="featured-collection-box">
+                                    <div className="collection-back"></div>
+                                    <div className="featured-collection-item">
+                                    {
+                                        featuredPhotos.map((item,index) => {
+                                            const pre_url = URL.createObjectURL(item)
+                                            return(
+                                                <>
+                                                <div className="upload-item" key={index}>
+                                                <label htmlFor={`img_checkbox${index}`} >
+                                                  <img src={pre_url} alt="" />
+                                                </label>
+                                                    <div className="round-check">
+                                                        <label>
+                                                            <input onChange={handleFeaturePreviewChange}  type="checkbox" checked={featuredPhotosChecked.includes(item)} value={item.name} id={`img_checkbox${index}`} />
+                                                        </label>
+                                                    </div>
+                                               </div>
+                                               </>
+                                            )
+                                        })
+                                    }   
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="featured-next-footer">
+                                <div className="featured-footer-left">
+                                    <span>public</span>
+                                </div>
+                                <div className="featured-footer-left">
+                                    <button> Cancel </button>
+                                    <button> Done </button>
+                                </div>
                             </div>
                         </div>
                     </FBmodal>
                 }
                 <button onClick={() => setFeaturedAddShow(true)} className='edit-button'> Edit Featured </button>
             </div>
-        </FBcard>
+    </FBcard>
     </>
   )
 }
