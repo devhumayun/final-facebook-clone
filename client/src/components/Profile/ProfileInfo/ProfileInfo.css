@@ -81,6 +81,7 @@
     height: 100%;
     overflow: hidden;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .featured-upload-footer {
@@ -152,3 +153,7 @@
     visibility: inherit;
     background-color: transparent;
 }
+
+/* Featured Next */
+.featured-next-warper{}
+.featured-next-warper {}
