@@ -53,9 +53,9 @@ const ProfileInfo = () => {
     const [ featuredShow, setFeaturedShow ] = useState(false)
     const [ featuredAddShow, setFeaturedAddShow ] = useState(false)
     const [ featuredUpload, setFeatureUpload ] = useState(false)
-    const [ featuredPrev, setFeaturedPrev ] = useState([])
-
-    console.log(featuredPrev)
+    const [ featuredPhotos, setFeaturedPhotos ] = useState([])
+    const [ featuredPhotosChecked, setFeaturedPhotosChecked ] = useState([])
+    const [ featuredPhotosNext, setFeaturedPhotosNext ] = useState(true)
 
     const handleBioShow = () => {
         setBioShow(!bioShow)
@@ -129,15 +129,36 @@ const ProfileInfo = () => {
     const handleUploadBack = () => {
         setFeaturedAddShow(true)
         setFeatureUpload(false)
-        setFeaturedPrev([])
+        setFeaturedPhotos([])
     }
     // upload photo
     const handleFeaturePhoto = (e) => {
-    
-        const image = Array.from(e.target.files)
+       
+        setFeaturedPhotos((preState) => [
+            ...preState,
+            ...Array.from(e.target.files)
+        ])
+        setFeaturedPhotosChecked((preState) => [
+            ...preState,
+            ...Array.from(e.target.files)
+        ])
 
-        
     }
+
+    const handleFeaturePreviewChange = (e) => {
+        const imageList = [...featuredPhotosChecked]
+        const val = featuredPhotos.find((data) => data.name === e.target.value)
+      
+        if( featuredPhotosChecked.includes(val) ){
+          imageList.splice(imageList.indexOf(val), (1))
+        }else {
+          imageList.push(val)
+        }
+        setFeaturedPhotosChecked(imageList)
+    }
+
+
+
 
   return (
     <>
@@ -525,7 +546,7 @@ const ProfileInfo = () => {
                     </FullWidthPopup>
                 }
                 {
-                    featuredAddShow && !featuredUpload &&
+                    featuredAddShow && 
                     <FBmodal title={"Edit Featured"}  closePopup={setFeaturedAddShow}>
                         <div className="add-show-featured">
                             <img src={baner} alt="" />
@@ -543,7 +564,7 @@ const ProfileInfo = () => {
                                   <input multiple={true} onChange={handleFeaturePhoto} type="file" id='upload' style={{ display: "none" }} />
                                 </label>
                            </div>
-                           <div className="upload-area">
+                          <div className="upload-area">
                             <div className="upload-title">
                                 <h4> Stories </h4>
                                 <span> This includes any active stories and your story archive. </span>
@@ -552,28 +573,50 @@ const ProfileInfo = () => {
                                 <h4> Uploaded photos </h4>
                                 <div className="upload-item-wraper">
                                     {
-                                        featuredPrev.map((item,index) => (
-                                           <>
-                                            <div className="upload-item" key={index}>
-                                            <label htmlFor="checklabelid">
-                                              <img src={item} alt="" />
-                                            </label>
-                                                <div className="round-check">
-                                                    <label htmlFor="checklabelid">
-                                                        <input type="checkbox" id='checklabelid' />
-                                                    </label>
-                                                </div>
-                                           </div>
-                                           </>
-                                        ))
+                                        featuredPhotos.map((item,index) => {
+                                            const pre_url = URL.createObjectURL(item)
+                                            return(
+                                                <>
+                                                <div className="upload-item" key={index}>
+                                                <label htmlFor={`img_checkbox${index}`} >
+                                                  <img src={pre_url} alt="" />
+                                                </label>
+                                                    <div className="round-check">
+                                                        <label>
+                                                            <input onChange={handleFeaturePreviewChange}  type="checkbox" checked={featuredPhotosChecked.includes(item)} value={item.name} id={`img_checkbox${index}`} />
+                                                        </label>
+                                                    </div>
+                                               </div>
+                                               </>
+                                            )
+                                        })
                                     }                  
                                 </div>
                             </div>
                            </div>
                            <div className="featured-upload-footer">
-                             <button className='featured-cancel'> Cancel </button>
+                             <button onClick={handleUploadBack} className='featured-cancel'> Cancel </button>
                              <button className='featured-next'> Next </button>
                            </div>
+                        </div>
+                    </FBmodal>
+                }
+                {
+                    featuredPhotosNext &&
+                    <FBmodal title="Edit featured collection">
+                        <div className="featured-next-warper">
+                            <div className="featured-next">
+                                <div className="featured-cover">
+                                    <span>Cover</span>
+                                    <div className="collection-cover-photo">
+                                        <img src="https://m.wsj.net/video/20151123/112315lunchbabysmiles/112315lunchbabysmiles_1280x720.jpg" alt="" />
+                                    </div>
+                                </div>
+                                <div className="featured-collection-name">
+                                    <input type="text" placeholder='Title' />
+                                </div>
+                                <div className="featured-collection-items"></div>
+                            </div>
                         </div>
                     </FBmodal>
                 }
