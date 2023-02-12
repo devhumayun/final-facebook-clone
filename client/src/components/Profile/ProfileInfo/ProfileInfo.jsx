@@ -604,7 +604,7 @@ const ProfileInfo = () => {
                 {
                     featuredPhotosNext &&
                     <FBmodal title="Edit featured collection">
-                        <div className="feainajoinY+-kknlinkedtured-next-warper">
+                        <div className="featured-next-warper">
                             <div className="featured-next">
                                 <div className="featured-cover">
                                     <span>Cover</span>
@@ -645,9 +645,9 @@ const ProfileInfo = () => {
                                 <div className="featured-footer-left">
                                     <span>public</span>
                                 </div>
-                                <div className="featured-footer-left">
+                                <div className="featured-footer-right">
                                     <button> Cancel </button>
-                                    <button> Done </button>
+                                    <button> Save </button>
                                 </div>
                             </div>
                         </div>

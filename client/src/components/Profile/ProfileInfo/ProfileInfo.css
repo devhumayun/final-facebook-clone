@@ -159,7 +159,7 @@
 
 }
 .featured-next-warper .featured-next{
-    height: 350px;
+    height: 230px;
     overflow-x: hidden;
 }
 .featured-next-warper .featured-next .featured-cover {
@@ -179,7 +179,6 @@
     width: 130px;
     overflow: hidden;
     border-radius: 10px;
-    position: relative;
 }
 .featured-next-warper .featured-next .featured-cover .collection-cover-photo img {
     width: 100%;
@@ -187,6 +186,7 @@
     object-fit: cover;
     overflow: hidden;
     cursor: pointer;
+    position: relative;
 }
 .featured-next-warper .featured-next .featured-cover .collection-cover-photo .featured-camera {
     height: 25px;
@@ -216,7 +216,7 @@
 }
 .featured-next-warper .featured-next .featured-collection-box .collection-back{
     width: 25%;
-    height: auto;
+    height: 200px;
     height: 100px;
     background-color: green;
 }
@@ -233,4 +233,41 @@
     width: 25%;
     height: auto;
     overflow: hidden;
+}
+
+.featured-next-warper .featured-next-footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 10px;
+    border-top: 1px solid #ccc;
+}
+.featured-next-warper .featured-next-footer .featured-footer-left{}
+.featured-next-warper .featured-next-footer .featured-footer-left span{}
+
+.featured-next-warper .featured-next-footer .featured-footer-right{
+    display: flex;
+    gap: 5px;
+}
+.featured-next-warper .featured-next-footer .featured-footer-right button{
+    display: inline-block;
+    border: none;
+    padding: 10px 35px;
+    font-size: 16px;
+    border-radius: 5px;
+    font-family: inherit;
+}
+.featured-next-warper .featured-next-footer .featured-footer-right button:nth-child(1){
+    background-color: #e5e8ee;
+    color: #000;
+}
+.featured-next-warper .featured-next-footer .featured-footer-right button:nth-child(1):hover{
+    background-color: #D8DADF;
+}
+.featured-next-warper .featured-next-footer .featured-footer-right button:nth-child(2){
+    background-color: #2879dd;
+    color: #fff;
+}
+.featured-next-warper .featured-next-footer .featured-footer-right button:nth-child(2):hover{
+   background-color: #1A6ED8;
 }
