@@ -617,8 +617,8 @@ const ProfileInfo = () => {
                                     <input type="text" placeholder='Collection Name' />
                                 </div>
                                 <div className="featured-collection-box">
-                                    <div className="collection-back"></div>
                                     <div className="featured-collection-item">
+                                        <div style={{width: "100px", height: "100px", background: "black"}} className="back"></div>
                                     {
                                         featuredPhotos.map((item,index) => {
                                             const pre_url = URL.createObjectURL(item)
