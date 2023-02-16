@@ -609,7 +609,7 @@ const ProfileInfo = () => {
                                 <div className="featured-cover">
                                     <span>Cover</span>
                                     <div className="collection-cover-photo">
-                                        <img src="https://m.wsj.net/video/20151123/112315lunchbabysmiles/112315lunchbabysmiles_1280x720.jpg" alt="" />
+                                        <img src={featuredPhotosChecked[0]} alt="" />
                                         <div style={{backgroundImage: `url(https://static.xx.fbcdn.net/rsrc.php/v3/yo/r/pW2TMyFiB4i.png)`}} className="featured-camera"></div>
                                     </div>
                                 </div>
@@ -618,11 +618,14 @@ const ProfileInfo = () => {
                                 </div>
                                 <div className="featured-collection-box">
                                     <div className="featured-collection-item">
-                                        <div style={{width: "100px", height: "100px", background: "black"}} className="back"></div>
-                                    {
-                                        featuredPhotos.map((item,index) => {
-                                            const pre_url = URL.createObjectURL(item)
-                                            return(
+                                        <div className="upload-item">
+                                            <button> <i class='bx bx-add-to-queue'></i> </button> 
+                                        </div>
+
+                                        {
+                                           featuredPhotos.map((item,index) => {
+                                              const pre_url = URL.createObjectURL(item)
+                                              return(
                                                 <>
                                                 <div className="upload-item" key={index}>
                                                 <label htmlFor={`img_checkbox${index}`} >
@@ -633,11 +636,36 @@ const ProfileInfo = () => {
                                                             <input onChange={handleFeaturePreviewChange}  type="checkbox" checked={featuredPhotosChecked.includes(item)} value={item.name} id={`img_checkbox${index}`} />
                                                         </label>
                                                     </div>
-                                               </div>
-                                               </>
-                                            )
-                                        })
-                                    }   
+                                                  </div>
+                                                </>
+                                             )
+                                          })
+                                        } 
+
+
+
+
+
+
+
+
+  
+                                        {/* <div className="upload-item">
+                                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReHTRKk6eSVY0cdIDwD_u94q7vzCMqzyxwbA&usqp=CAU" alt="" />
+                                        </div>
+  
+                                        <div className="upload-item">
+                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReHTRKk6eSVY0cdIDwD_u94q7vzCMqzyxwbA&usqp=CAU" alt="" />
+                                        </div>
+  
+                                        <div className="upload-item">
+                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReHTRKk6eSVY0cdIDwD_u94q7vzCMqzyxwbA&usqp=CAU" alt="" />
+                                        </div>
+  
+                                        <div className="upload-item">
+                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReHTRKk6eSVY0cdIDwD_u94q7vzCMqzyxwbA&usqp=CAU" alt="" />
+                                        </div> */}
+  
                                     </div>
                                 </div>
                             </div>
