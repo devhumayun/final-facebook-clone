@@ -28,5 +28,19 @@
   },
   "devDependencies": {
     "concurrently": "^7.3.0"
+  },
+  "prettier" : {
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "tabWidth": 2,
+    "editor.formatOnSave": true,
+    "[javascript]": {
+      "editor.formatOnSave": false
+    },
+    "prettier.requireConfig": true
+
   }
+  
+  
 }
