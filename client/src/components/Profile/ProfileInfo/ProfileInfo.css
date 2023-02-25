@@ -112,6 +112,10 @@
   font-weight: 500;
 }
 
+.featured-upload-footer button.disabled {
+  background-color: #ccc;
+}
+
 .featured-upload-footer button.featured-cancel {
   padding: 8px 35px;
   background: #ebecef;
