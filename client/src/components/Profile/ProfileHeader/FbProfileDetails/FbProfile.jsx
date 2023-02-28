@@ -1,18 +1,81 @@
 import React, { useCallback, useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import Avater from '../../../Avater/Avater'
 import FBmodal from '../../../FBmodal/FBmodal'
 import './FbProfile.css'
 import Cropper from 'react-easy-crop'
+import getCroppedImg from '../../../../utility/cropImage'
+import { userProfilePhoto } from '../../../../redux/auth/action'
+import axios from 'axios'
 
 const FbProfile = () => {
   const { user } = useSelector((state) => state.auth)
+  const dispatch = useDispatch()
   const [profilePhoto, setProfilePhoto] = useState(null)
   const [image, setImage] = useState(null)
+  const [crop, setCrop] = useState({ x: 0, y: 0 })
+  const [rotation, setRotation] = useState(0)
+  const [zoom, setZoom] = useState(1)
+  const [croppedAreaPixels, setCroppedAreaPixels] = useState(null)
+  const [croppedImage, setCroppedImage] = useState(null)
+
+  const onCropComplete = useCallback((croppedArea, croppedAreaPixels) => {
+    setCroppedAreaPixels(croppedAreaPixels)
+  }, [])
+  const showCroppedImage = useCallback(async () => {
+    try {
+      const croppedImage = await getCroppedImg(
+        image,
+        croppedAreaPixels,
+        rotation
+      )
+      setImage(croppedImage)
+      setCroppedImage(croppedImage)
+    } catch (e) {
+      console.error(e)
+    }
+  }, [croppedAreaPixels, rotation])
+
+  const onClose = useCallback(() => {
+    setCroppedImage(null)
+  }, [])
 
   const handleImageUpload = (e) => {
     const img = URL.createObjectURL(e.target.files[0])
     setImage(img)
+  }
+
+  const handleProfilePhotoUpdate = async (e) => {
+    const croppedImage = await getCroppedImg(image, croppedAreaPixels, rotation)
+    setImage(croppedImage)
+    setCroppedImage(croppedImage)
+    const finalBlob = await fetch(croppedImage).then((res) => res.blob())
+    const finalImage = new File([finalBlob], 'profile_photo.png', {
+      type: 'image/png',
+    })
+    const form_data = new FormData()
+    form_data.append('profile', finalImage)
+
+    await axios
+      .put(`api/v1/user/profile-photo-update/${user._id}`, form_data)
+      .then((res) => {
+        setProfilePhoto(false)
+        setImage(null)
+        dispatch({
+          type: 'USER_PROFILE_PHOTO_UPDATE',
+          payload: { profile_photo: res.data.filename },
+        })
+      })
+    // dispatch(
+    //   userProfilePhoto({
+    //     form_data,
+    //     id: user._id,
+    //   }),
+    //   {
+    //     setImage,
+    //     setProfilePhoto,
+    //   }
+    // )
   }
 
   return (
@@ -40,18 +103,40 @@ const FbProfile = () => {
                 <div className="profile-descrip">
                   <textarea placeholder="Description"></textarea>
                 </div>
-                <div className="crop-zone"></div>
+                <div className="crop-zone">
+                  <Cropper
+                    image={image}
+                    crop={crop}
+                    rotation={rotation}
+                    zoom={zoom}
+                    aspect={1 / 1}
+                    showGrid={false}
+                    cropShape="round"
+                    cropSize={{ width: 300, height: 300 }}
+                    onCropChange={setCrop}
+                    onRotationChange={setRotation}
+                    onCropComplete={onCropComplete}
+                    onZoomChange={setZoom}
+                  />
+                </div>
                 <div className="photo-slider">
                   <button>
                     <i class="bx bx-minus"></i>
                   </button>
-                  <input type="range" value={''} min={1} max={5} step={0.01} />
+                  <input
+                    type="range"
+                    value={''}
+                    min={1}
+                    max={5}
+                    step={0.01}
+                    onChange={(e) => setZoom(e.target.value)}
+                  />
                   <button>
                     <i class="bx bx-plus"></i>
                   </button>
                 </div>
                 <div className="croping-button">
-                  <button>
+                  <button onClick={showCroppedImage}>
                     <i class="bx bx-crop"></i> Crop Photo
                   </button>
                   <button>
@@ -70,7 +155,7 @@ const FbProfile = () => {
                 </div>
                 <div className="profile-photo-upload-footer">
                   <button> Cancel </button>
-                  <button> Save </button>
+                  <button onClick={handleProfilePhotoUpdate}> Save </button>
                 </div>
               </div>
             </>

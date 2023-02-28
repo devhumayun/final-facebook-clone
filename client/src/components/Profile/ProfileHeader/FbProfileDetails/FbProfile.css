@@ -53,8 +53,7 @@
 
 .profilePhoto-manage {
   min-height: 500px;
-  overflow-x: hidden;
-  overflow-y: scroll;
+  overflow: scroll;
 }
 .profilePhoto-manage .profile-descrip {
   margin: 20px 10px;
@@ -79,8 +78,9 @@
 }
 .profilePhoto-manage .crop-zone {
   position: relative;
-  height: 300px;
+  height: 350px;
   width: 100%;
+  margin: auto;
 }
 .profilePhoto-manage .crop-zone img {
 }
@@ -118,6 +118,14 @@
   border-radius: 50%;
   background-color: #fff;
   cursor: pointer;
+}
+
+.reactEasyCrop_CropAreaRound {
+  width: 300px !important;
+  height: 300px !important;
+}
+.reactEasyCrop_CropAreaRound {
+  color: rgba(255, 255, 255, 0.7) !important;
 }
 
 .croping-button {
@@ -167,4 +175,5 @@
   gap: 10px;
 }
 .profile-photo-upload-footer button {
+  cursor: pointer;
 }
