@@ -1,0 +1,170 @@
+.fb-profile-details {
+}
+.fb-profile-details .profile-info {
+}
+.fb-profile-details .profile-info .profile-photo {
+  position: relative;
+}
+.fb-profile-details .profile-info .profile-photo .profile-upload-icon {
+  position: absolute;
+  bottom: 14%;
+  right: 11px;
+  border: none;
+  font-size: 26px;
+  background: #f8f8f8;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.profilePhoto-upload {
+  min-height: 500px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+/* .profilePhoto-upload .linebar {
+  width: 100%;
+  height: 1px;
+  background-color: #cccc;
+  margin: 10px 0px;
+} */
+
+.profilePhoto-upload label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 0px;
+  background: #d4e2fb;
+  color: #77a7ff;
+  font-size: 16px;
+  font-weight: 600;
+  width: 96%;
+  gap: 6px;
+  margin: auto;
+  border-radius: 5px;
+  margin: 10px auto;
+  cursor: pointer;
+}
+
+.profilePhoto-manage {
+  min-height: 500px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.profilePhoto-manage .profile-descrip {
+  margin: 20px 10px;
+}
+.profilePhoto-manage .profile-descrip textarea {
+  width: 100%;
+  color: #050505;
+  padding: 20px 15px;
+  border: 1px solid #ccc;
+  background: #fff;
+  border-radius: 5px;
+  resize: none;
+  height: 80px;
+  font-family: 'Segoe UI';
+}
+.profilePhoto-manage .profile-descrip textarea:hover {
+  border: 1px solid #000;
+}
+.profilePhoto-manage .profile-descrip textarea::placeholder {
+  font-family: 'Segoe UI';
+  font-size: 15px;
+}
+.profilePhoto-manage .crop-zone {
+  position: relative;
+  height: 300px;
+  width: 100%;
+}
+.profilePhoto-manage .crop-zone img {
+}
+
+.photo-slider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+.photo-slider button {
+  font-size: 20px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.photo-slider input {
+  width: 50%;
+  appearance: none;
+  --webkit-appearance: none;
+  background-color: #ced0d4;
+  height: 3px;
+  border-radius: 10px;
+  transform: translate(0px, -1px);
+}
+
+.photo-slider input::-webkit-slider-thumb {
+  appearance: none;
+  --webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.croping-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+  margin-top: 8px;
+}
+.croping-button button {
+  border-radius: 5px;
+  background: #d8dadf;
+  border: none;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  padding: 10px 15px;
+  font-size: 15px;
+  font-family: inherit;
+  font-weight: 500;
+  color: #000;
+  cursor: pointer;
+}
+
+.profile-public {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  margin-top: 16px;
+  padding-left: 20px;
+}
+
+.profile-public .profile-publc-icon {
+  width: 14px;
+  height: 14px;
+  background-position: 0px 80px;
+}
+.profile-public span {
+}
+
+.profile-photo-upload-footer {
+  padding: 20px 15px;
+  border-top: 1px solid #ccc;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+.profile-photo-upload-footer button {
+}
