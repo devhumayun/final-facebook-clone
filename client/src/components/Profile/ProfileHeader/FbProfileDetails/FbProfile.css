@@ -53,7 +53,6 @@
 
 .profilePhoto-manage {
   min-height: 500px;
-  overflow: scroll;
 }
 .profilePhoto-manage .profile-descrip {
   margin: 20px 10px;
@@ -66,11 +65,19 @@
   background: #fff;
   border-radius: 5px;
   resize: none;
+  outline-offset: 5px;
   height: 80px;
   font-family: 'Segoe UI';
 }
+.profilePhoto-manage .profile-descrip textarea:focus {
+  outline-color: #1877f2;
+}
+.profilePhoto-manage .profile-descrip textarea:focus {
+  border: 1px solid #cfd1d5;
+}
+
 .profilePhoto-manage .profile-descrip textarea:hover {
-  border: 1px solid #000;
+  border: 1px solid #65676b;
 }
 .profilePhoto-manage .profile-descrip textarea::placeholder {
   font-family: 'Segoe UI';
@@ -89,7 +96,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
   margin-top: 10px;
 }
 .photo-slider button {
@@ -97,8 +103,15 @@
   border: none;
   background-color: transparent;
   cursor: pointer;
+  width: 35px;
+  line-height: 35px;
+  height: 35px;
+  text-align: center;
+  border-radius: 50%;
 }
-
+.photo-slider button:hover {
+  background-color: #e2dfdf;
+}
 .photo-slider input {
   width: 50%;
   appearance: none;
@@ -155,8 +168,7 @@
   display: flex;
   gap: 5px;
   align-items: center;
-  margin-top: 16px;
-  padding-left: 20px;
+  padding: 20px 0px 20px 20px;
 }
 
 .profile-public .profile-publc-icon {
@@ -176,4 +188,30 @@
 }
 .profile-photo-upload-footer button {
   cursor: pointer;
+}
+
+.profile-photo-upload-footer .profilePhoto-upload-cancel {
+  background: transparent;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: inherit;
+  color: #1a6ed8;
+}
+.profile-photo-upload-footer .profilePhoto-upload-cancel:hover {
+  background-color: #f8f5f5;
+}
+.profile-photo-upload-footer .profilePhoto-upload-save {
+  background: #1a6ed8;
+  border: none;
+  padding: 10px 21px;
+  border-radius: 5px;
+  font-size: 15px;
+  font-family: inherit;
+  color: #fff;
+}
+.profile-photo-upload-footer .profilePhoto-upload-save:hover {
+  background: #0c6bdf;
 }

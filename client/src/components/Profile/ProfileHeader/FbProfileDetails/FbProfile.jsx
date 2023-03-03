@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Avater from '../../../Avater/Avater'
 import FBmodal from '../../../FBmodal/FBmodal'
@@ -18,6 +18,7 @@ const FbProfile = () => {
   const [zoom, setZoom] = useState(1)
   const [croppedAreaPixels, setCroppedAreaPixels] = useState(null)
   const [croppedImage, setCroppedImage] = useState(null)
+  const slider = useRef(null)
 
   const onCropComplete = useCallback((croppedArea, croppedAreaPixels) => {
     setCroppedAreaPixels(croppedAreaPixels)
@@ -43,6 +44,22 @@ const FbProfile = () => {
   const handleImageUpload = (e) => {
     const img = URL.createObjectURL(e.target.files[0])
     setImage(img)
+  }
+
+  const zoomIn = () => {
+    slider.current.stepUp()
+    setZoom(slider.current.value)
+
+    // if (zoom < 5) {
+    //   setZoom((prev) => prev + 0.2)
+    // }
+  }
+  const zoomOut = () => {
+    slider.current.stepDown()
+    setZoom(slider.current.value)
+    // if (zoom > 1) {
+    //   setZoom((prev) => prev - 0.2)
+    // }
   }
 
   const handleProfilePhotoUpdate = async (e) => {
@@ -120,18 +137,19 @@ const FbProfile = () => {
                   />
                 </div>
                 <div className="photo-slider">
-                  <button>
+                  <button onClick={() => zoomOut()}>
                     <i class="bx bx-minus"></i>
                   </button>
                   <input
                     type="range"
-                    value={''}
+                    value={zoom}
+                    ref={slider}
                     min={1}
                     max={5}
-                    step={0.01}
+                    step={0.2}
                     onChange={(e) => setZoom(e.target.value)}
                   />
-                  <button>
+                  <button onClick={() => zoomIn()}>
                     <i class="bx bx-plus"></i>
                   </button>
                 </div>
@@ -154,8 +172,13 @@ const FbProfile = () => {
                   <span>Your profile picture is public.</span>
                 </div>
                 <div className="profile-photo-upload-footer">
-                  <button> Cancel </button>
-                  <button onClick={handleProfilePhotoUpdate}> Save </button>
+                  <button className="profilePhoto-upload-cancel">Cancel</button>
+                  <button
+                    className="profilePhoto-upload-save"
+                    onClick={handleProfilePhotoUpdate}
+                  >
+                    Save
+                  </button>
                 </div>
               </div>
             </>

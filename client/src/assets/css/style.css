@@ -1473,7 +1473,7 @@ ul {
   margin: auto;
 }
 
-.fb-profile-header .fb-cover-photo button {
+.fb-profile-header .fb-cover-photo .coverphoto-icon {
   position: absolute;
   bottom: 20px;
   right: 30px;
