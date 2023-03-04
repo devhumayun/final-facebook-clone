@@ -17,6 +17,7 @@ import {
   changePassword,
   resendResetPasswordOTP,
   profilePhotoUpdate,
+  coverPhotoUpdate,
 } from '../controllers/userController.js'
 
 // resolve
@@ -44,6 +45,7 @@ router.post('/register', register)
 router.get('/me', loggedInUser)
 router.put('/update-user/:id', updateUser)
 router.put('/profile-photo-update/:id', profilePhotoMul, profilePhotoUpdate)
+router.put('/cover-photo-update/:id', profilePhotoMul, coverPhotoUpdate)
 router.get('/account-activate/:token', accountActivation)
 router.post('/code-activation', accountActivationByCode)
 router.post('/resend-activation', resendActivationLink)

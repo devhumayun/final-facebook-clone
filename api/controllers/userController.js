@@ -919,3 +919,26 @@ export const profilePhotoUpdate = async (req, res, next) => {
     next(error)
   }
 }
+/**
+ * user cover photo update
+ */
+export const coverPhotoUpdate = async (req, res, next) => {
+  try {
+    const { id } = req.params
+    const user = await User.findByIdAndUpdate(
+      id,
+      {
+        cover_photo: req.file.filename,
+      },
+      {
+        new: true,
+      }
+    )
+    res.status(200).json({
+      message: 'Profile Update Successfull',
+      filename: req.file.filename,
+    })
+  } catch (error) {
+    next(error)
+  }
+}

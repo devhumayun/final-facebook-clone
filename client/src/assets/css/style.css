@@ -1463,7 +1463,7 @@ ul {
 }
 
 .fb-profile-header .fb-cover-photo img {
-  width: 100%;
+  width: 100% !important;
   height: auto;
   position: absolute;
   top: 0px;

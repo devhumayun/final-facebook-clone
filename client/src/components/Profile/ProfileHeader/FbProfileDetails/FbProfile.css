@@ -215,3 +215,63 @@
 .profile-photo-upload-footer .profilePhoto-upload-save:hover {
   background: #0c6bdf;
 }
+
+.fb-cover-photo .reactEasyCrop_CropArea {
+  width: 100% !important;
+}
+
+.save-cover-changes {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 20px;
+  background: rgba(0, 0, 0, 0.4);
+}
+.save-cover-changes .cover-changes-left {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.save-cover-changes .cover-changes-left .public-icon {
+  width: 21px;
+  height: 22px;
+  background-position: 0px -21px;
+  filter: invert(100%);
+}
+.save-cover-changes .cover-changes-left span {
+  color: #fff;
+  font-family: inherit;
+  font-size: 15px;
+}
+
+.save-cover-changes .cover-changes-right {
+  display: flex;
+  gap: 10px;
+}
+.save-cover-changes .cover-changes-right .cover-changes-cancel {
+  background: #707070;
+  color: #fff;
+  border: none;
+  padding: 10px 25px;
+  font-size: 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.save-cover-changes .cover-changes-right .cover-changes-cancel:hover {
+  background: #585656;
+}
+.save-cover-changes .cover-changes-right .cover-changes-save {
+  background: #468be5;
+  color: #fff;
+  border: none;
+  padding: 10px 25px;
+  font-size: 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.save-cover-changes .cover-changes-right .cover-changes-save:hover {
+  background: #3982e4;
+}
