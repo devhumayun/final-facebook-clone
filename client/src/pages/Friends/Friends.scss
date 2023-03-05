@@ -1,2 +1,10 @@
 .friends-area {
+  margin-top: 50px;
+  display: flex;
+  .friends-area-menu {
+    width: 20%;
+  }
+  .friends-area-container {
+    width: 80%;
+  }
 }

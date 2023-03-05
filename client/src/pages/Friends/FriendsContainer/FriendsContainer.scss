@@ -1,0 +1,32 @@
+.friends-container {
+  .friends-wraper {
+    .friends-req-section {
+      .friend-req-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 35px 20px 20px 0px;
+        h2 {
+          font-size: 20px;
+          font-family: inherit;
+          font-weight: 900;
+        }
+        a {
+          color: #1298f6;
+          font-family: inherit;
+          font-size: 16px;
+          display: inline-block;
+          width: 45px;
+          height: 23px;
+          background: transparent;
+          padding: 6px;
+          box-sizing: content-box;
+          border-radius: 5px;
+          &:hover {
+            background: #d5d5d5;
+          }
+        }
+      }
+    }
+  }
+}
