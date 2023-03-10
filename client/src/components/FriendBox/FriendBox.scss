@@ -1,0 +1,57 @@
+.friend-req-box {
+  width: 215px;
+  overflow: hidden;
+  border-radius: 7px;
+  img {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+  }
+  .friend-info {
+    padding: 5px 10px;
+    h3 {
+      font-size: 15px;
+      font-family: inherit;
+      font-weight: 600;
+      margin-bottom: 9px;
+    }
+  }
+  .mutual {
+    display: flex;
+    justify-content: flex-start;
+    gap: 5px;
+    align-items: center;
+
+    .mutual-list {
+      position: relative;
+      cursor: pointer;
+      img {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+      }
+      :first-child {
+        position: absolute;
+      }
+      :last-child {
+        margin-left: 14px;
+      }
+    }
+    .all-mutual {
+      span {
+        cursor: pointer;
+        font-size: 14px;
+        color: #65676b;
+        display: inline-block;
+        font-weight: 400;
+        transform: translate(0px, -4px);
+      }
+    }
+  }
+  .friend-action {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    padding: 0px 10px 10px 10px;
+  }
+}

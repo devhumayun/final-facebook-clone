@@ -157,6 +157,28 @@ ul {
   box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
 }
 
+.fb-btn {
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 15px;
+  border: none;
+  font-weight: 600;
+  font-family: inherit;
+}
+.blue-btn {
+  background-color: #1876f2;
+  color: #fff;
+}
+.grey-btn {
+  background: #dcddde;
+  color: #000;
+}
+.info-btn {
+  color: #1a6ed8;
+  background-color: #c4d6eb75;
+}
+
 .divider {
   height: 1px;
   background-color: var(--bg-tertiary);
