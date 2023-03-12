@@ -942,3 +942,21 @@ export const coverPhotoUpdate = async (req, res, next) => {
     next(error)
   }
 }
+/**
+ * Get All Users
+ */
+export const getAllUsers = async (req, res, next) => {
+  try {
+    const users = await User.find()
+
+    if (users) {
+      res.status(200).json({
+        users: users,
+      })
+    } else {
+      next(createError(400, 'Users Not Found'))
+    }
+  } catch (error) {
+    next(error)
+  }
+}

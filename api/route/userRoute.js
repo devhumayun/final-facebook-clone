@@ -18,6 +18,7 @@ import {
   resendResetPasswordOTP,
   profilePhotoUpdate,
   coverPhotoUpdate,
+  getAllUsers,
 } from '../controllers/userController.js'
 
 // resolve
@@ -43,6 +44,7 @@ const router = express.Router()
 router.post('/login', login)
 router.post('/register', register)
 router.get('/me', loggedInUser)
+router.get('/users', getAllUsers)
 router.put('/update-user/:id', updateUser)
 router.put('/profile-photo-update/:id', profilePhotoMul, profilePhotoUpdate)
 router.put('/cover-photo-update/:id', profilePhotoMul, coverPhotoUpdate)
