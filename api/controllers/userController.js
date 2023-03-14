@@ -947,7 +947,8 @@ export const coverPhotoUpdate = async (req, res, next) => {
  */
 export const getAllUsers = async (req, res, next) => {
   try {
-    const users = await User.find()
+    const { id } = req.params
+    const users = await User.find().select('-password').where('_id').ne(id)
 
     if (users) {
       res.status(200).json({
@@ -956,6 +957,28 @@ export const getAllUsers = async (req, res, next) => {
     } else {
       next(createError(400, 'Users Not Found'))
     }
+  } catch (error) {
+    next(error)
+  }
+}
+/**
+ * Get All Users
+ */
+export const addFriends = async (req, res, next) => {
+  try {
+    const { sender, receiver } = req.params
+    const send = await User.findById(sender)
+    const receive = await User.findById(receiver)
+
+    await receive.updateOne({
+      $push: { request: sender },
+    })
+    await receive.updateOne({
+      $push: { folwers: sender },
+    })
+    await send.updateOne({
+      $push: { folowing: receiver },
+    })
   } catch (error) {
     next(error)
   }

@@ -1,4 +1,5 @@
 import {
+  GET_ALL_USERS,
   LOGIN_FAILED,
   LOGIN_SUCCESS,
   REGISTER_FAILED,
@@ -83,6 +84,11 @@ export const authReducer = (state = authInitial, { type, payload }) => {
         ...state,
         user: null,
         loginStatus: false,
+      }
+    case GET_ALL_USERS:
+      return {
+        ...state,
+        users: payload,
       }
 
     default:

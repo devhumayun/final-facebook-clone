@@ -1,8 +1,8 @@
-
 // auth initail state
 export const authInitial = {
-    user : null,
-    loginStatus : false,
-    loading : false,
-    message : null
-};
+  user: null,
+  users: [],
+  loginStatus: false,
+  loading: false,
+  message: null,
+}

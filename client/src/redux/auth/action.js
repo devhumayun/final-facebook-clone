@@ -3,6 +3,7 @@ import Cookies from 'js-cookie'
 import { createToast } from '../../utility/toast'
 import { LOADER_START } from '../loader/loaderTypes'
 import {
+  GET_ALL_USERS,
   LOGIN_FAILED,
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
@@ -328,3 +329,23 @@ export const userProfilePhoto =
       console.log(error.response)
     }
   }
+/**
+ * User profile photo update
+ */
+export const getAllUsers = (id) => async (dispatch) => {
+  try {
+    await axios
+      .get(`/api/v1/user/users/${id}`)
+      .then((res) => {
+        dispatch({
+          type: GET_ALL_USERS,
+          payload: res.data.users,
+        })
+      })
+      .catch((error) => {
+        createToast(error.response.data.message)
+      })
+  } catch (error) {
+    console.log(error.response)
+  }
+}

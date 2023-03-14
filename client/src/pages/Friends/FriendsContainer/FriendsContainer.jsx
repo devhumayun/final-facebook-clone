@@ -1,9 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import FriendBox from '../../../components/FriendBox/FriendBox'
 import './FriendsContainer.scss'
+import { useDispatch, useSelector } from 'react-redux'
+import { getAllUsers } from '../../../redux/auth/action'
 
 const FriendsContainer = () => {
+  const { users, user } = useSelector((state) => state.auth)
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(getAllUsers(user._id))
+  }, [getAllUsers])
+
   return (
     <div className="friends-container">
       <div className="friends-wraper">
@@ -13,36 +22,15 @@ const FriendsContainer = () => {
             <Link to=""> Sell all</Link>
           </div>
           <div className="friend-req-list">
-            <Link to="">
-              <FriendBox />
-            </Link>
-            <Link to="">
-              <FriendBox />
-            </Link>
-            <Link to="">
-              <FriendBox />
-            </Link>
-            <Link to="">
-              <FriendBox />
-            </Link>
-            <Link to="">
-              <FriendBox />
-            </Link>
-            <Link to="">
-              <FriendBox />
-            </Link>
-            <Link to="">
-              <FriendBox />
-            </Link>
-            <Link to="">
-              <FriendBox />
-            </Link>
-            <Link to="">
-              <FriendBox />
-            </Link>
-            <Link to="">
-              <FriendBox />
-            </Link>
+            {users.map((item, index) => {
+              if (user.request.includes(item._id)) {
+                return (
+                  <Link to="" key={index}>
+                    <FriendBox user={item} buttonStatus="request" />
+                  </Link>
+                )
+              }
+            })}
           </div>
           <div className="friend-pagi">
             <span> See More </span>
@@ -56,24 +44,19 @@ const FriendsContainer = () => {
             <Link to=""> Sell all</Link>
           </div>
           <div className="friend-req-list">
-            <Link to="">
-              <FriendBox />
-            </Link>
-            <Link to="">
-              <FriendBox />
-            </Link>
-            <Link to="">
-              <FriendBox />
-            </Link>
-            <Link to="">
-              <FriendBox />
-            </Link>
-            <Link to="">
-              <FriendBox />
-            </Link>
-            <Link to="">
-              <FriendBox />
-            </Link>
+            {users.map((item, index) => {
+              if (
+                !user.friends.includes(item._id) &&
+                !user.request.includes(item._id) &&
+                !user.folowing.includes(item._id)
+              ) {
+                return (
+                  <Link to="" key={index}>
+                    <FriendBox user={item} buttonStatus="pymn" />
+                  </Link>
+                )
+              }
+            })}
           </div>
         </div>
       </div>

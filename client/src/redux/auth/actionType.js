@@ -21,3 +21,6 @@ export const USER_UPDATE = 'USER_UPDATE'
 
 // user profile photo update
 export const USER_PROFILE_PHOTO_UPDATE = 'USER_PROFILE_PHOTO_UPDATE'
+
+// get all users
+export const GET_ALL_USERS = 'GET_ALL_USERS'
