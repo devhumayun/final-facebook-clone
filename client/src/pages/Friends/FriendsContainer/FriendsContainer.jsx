@@ -48,7 +48,7 @@ const FriendsContainer = () => {
               if (
                 !user.friends.includes(item._id) &&
                 !user.request.includes(item._id) &&
-                !user.folowing.includes(item._id)
+                !user.following.includes(item._id)
               ) {
                 return (
                   <Link to="" key={index}>
