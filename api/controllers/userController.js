@@ -979,6 +979,38 @@ export const addFriends = async (req, res, next) => {
     await send.updateOne({
       $push: { folowing: receiver },
     })
+
+    const senderUpdatedData = await User.findById(sender)
+    res.status(200).json({
+      user: senderUpdatedData,
+    })
+  } catch (error) {
+    next(error)
+  }
+}
+/**
+ * consfirm friend request
+ */
+export const confirmFriendRequest = async (req, res, next) => {
+  try {
+    const { sender, receiver } = req.params
+    const send = await User.findById(sender)
+    const receive = await User.findById(receiver)
+
+    await receive.updateOne({
+      $pull: { request: sender },
+    })
+    await receive.updateOne({
+      $push: { friends: sender },
+    })
+    await send.updateOne({
+      $push: { friends: receiver },
+    })
+
+    const receiverUpdatedData = await User.findById(receiver)
+    res.status(200).json({
+      user: receiverUpdatedData,
+    })
   } catch (error) {
     next(error)
   }

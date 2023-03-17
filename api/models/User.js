@@ -102,11 +102,11 @@ const userModel = mongoose.Schema(
       type: Array,
       default: [],
     },
-    following: {
+    folowing: {
       type: Array,
       default: [],
     },
-    folowers: {
+    folwers: {
       type: Array,
       default: [],
     },

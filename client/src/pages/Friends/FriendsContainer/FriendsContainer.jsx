@@ -8,6 +8,7 @@ import { getAllUsers } from '../../../redux/auth/action'
 const FriendsContainer = () => {
   const { users, user } = useSelector((state) => state.auth)
   const dispatch = useDispatch()
+  console.log(user.request)
 
   useEffect(() => {
     dispatch(getAllUsers(user._id))

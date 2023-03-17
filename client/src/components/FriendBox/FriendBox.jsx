@@ -1,13 +1,17 @@
-import axios from 'axios'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { addFriend, friendReqConfirm } from '../../redux/auth/action'
 import './FriendBox.scss'
 
 const FriendBox = ({ user, buttonStatus }) => {
   const { user: logdin_user } = useSelector((state) => state.auth)
+  const dispatch = useDispatch()
   const handleAddFriend = (receiverID) => {
-    axios.get(`/api/v1/user/add-friends/${logdin_user._id}/${receiverID}`)
+    dispatch(addFriend(logdin_user._id, receiverID))
   }
   if (user) {
+    // const confirmFriendReq = (senderID) => {
+    //   dispatch(friendReqConfirm(senderID, logdin_user._id))
+    // }
     return (
       <div>
         <div className="friend-req-box shadow-reg">
@@ -42,7 +46,10 @@ const FriendBox = ({ user, buttonStatus }) => {
           <div className="friend-action">
             {buttonStatus === 'request' && (
               <>
-                <button className="fb-btn blue-btn"> Confirm </button>
+                <button onClick={''} className="fb-btn blue-btn">
+                  {' '}
+                  Confirm{' '}
+                </button>
                 <button className="fb-btn grey-btn"> Delete </button>
               </>
             )}

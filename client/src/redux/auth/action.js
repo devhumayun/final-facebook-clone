@@ -4,6 +4,7 @@ import { createToast } from '../../utility/toast'
 import { LOADER_START } from '../loader/loaderTypes'
 import {
   GET_ALL_USERS,
+  GET_UPDATED_ME,
   LOGIN_FAILED,
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
@@ -349,3 +350,44 @@ export const getAllUsers = (id) => async (dispatch) => {
     console.log(error.response)
   }
 }
+/**
+ * send a friend request // add friend
+ */
+export const addFriend = (receiverID, senderID) => async (dispatch) => {
+  try {
+    await axios
+      .get(`/api/v1/user/add-friends/${senderID}/${receiverID}`)
+      .then((res) => {
+        dispatch({
+          type: GET_UPDATED_ME,
+          payload: res.data.user,
+        })
+      })
+      .catch((error) => {
+        createToast(error.response.data.message)
+      })
+  } catch (error) {
+    console.log(error.response)
+  }
+}
+
+/**
+ * send a friend request // add friend
+ */
+// export const friendReqConfirm = (receiverID, senderID) => async (dispatch) => {
+//   try {
+//     await axios
+//       .get(`/api/v1/user/confirm-friend-request/${senderID}/${receiverID}`)
+//       .then((res) => {
+//         dispatch({
+//           type: GET_UPDATED_ME,
+//           payload: res.data.user,
+//         })
+//       })
+//       .catch((error) => {
+//         createToast(error.response.data.message)
+//       })
+//   } catch (error) {
+//     console.log(error.response)
+//   }
+// }

@@ -20,6 +20,7 @@ import {
   coverPhotoUpdate,
   getAllUsers,
   addFriends,
+  confirmFriendRequest,
 } from '../controllers/userController.js'
 
 // resolve
@@ -47,6 +48,7 @@ router.post('/register', register)
 router.get('/me', loggedInUser)
 router.get('/users/:id', getAllUsers)
 router.get('/add-friends/:sender/:receiver', addFriends)
+router.get('/confirm-friend-request/:sender/:receiver', addFriends)
 router.put('/update-user/:id', updateUser)
 router.put('/profile-photo-update/:id', profilePhotoMul, profilePhotoUpdate)
 router.put('/cover-photo-update/:id', profilePhotoMul, coverPhotoUpdate)
